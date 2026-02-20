@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this match item?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/servlet/EpgAutoAddDataRes?action=01' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> Back
+</a>
+<p> 
+  <table border="0" cellspacing="2" cellpadding="2">
+    <tr> 
+      <td colspan="2"> <strong>Auto-Add Options</strong></td>
+    </tr>
+    
+    $matchList
+    
+    $availableNames
+     
+<form action='/servlet/EpgAutoAddDataRes' method='POST' accept-charset="UTF-8">
+<input type="hidden" name="action" value="04">
+
+$initialMatchList
+
+      <td colspan="2" align="right">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td align="right"><strong>Auto Deleteable</strong></td>
+      <td><input name="autoDel" type="checkbox" id="autoDel2" value="true" $AutoDelete> <strong>Keep 
+        For </strong> <input name="keepFor" type="text" id="keepFor2" value="$keepFor" size="3" maxlength="3">
+        days </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="right">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td align="right"><strong>Start Time Buffer</strong></td>
+      <td><input name="startbuffer" type="text" id="startbuffer" value="$startBuff" size="3" maxlength="3">
+        minutes </td>
+    </tr>
+    <tr> 
+      <td align="right"><strong>End Time Buffer</strong></td>
+      <td><input name="endbuffer" type="text" id="endbuffer" value="$endBuff" size="3" maxlength="3">
+        minutes </td>
+    </tr>
+    <tr> 
+      <td colspan="2" align="right">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right" valign="top"><strong>Capture Type</strong></td>
+      <td>$captureTypes</td>
+    </tr>
+    <tr>
+      <td align="right" valign="top"><strong>Filename Pattern</strong></td>
+      <td>$fileNamePatterns</td>
+    </tr>    
+    <tr>
+      <td align="right" valign="top"><strong>Capture Path</strong></td>
+      <td>$CapturePath</td>
+    </tr>        
+    <tr> 
+      <td align="right" valign="top"><strong>Post Capture Task</strong></td>
+      <td>$tasks</td>
+    </tr>
+    <tr> 
+      <td align="right" valign="top"><strong>Already Exists Detection</strong></td>
+      <td>$exists</td>
+    </tr>    
+    <tr> 
+      <td align="right">&nbsp;</td>
+      <td><input name="submit" type='submit' value='Submit'> <input name="index" type="hidden" id="index" value="$index"></td>
+    </tr>
+  </table>
+</form>
+
+<br><br>
+</body>
+</html>

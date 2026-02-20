@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/servlet/ChannelDataRes' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> 
+Channel Setup</a> 
+<p>
+
+<strong>Scan Custom Frequency</strong>
+<table>
+
+<form action='/servlet/ChannelDataRes'>
+<input type='hidden' name='action' value='04'>
+<input type='hidden' name='name' value='Custom'>
+<tr><td>Frequency</td><td><input size="6" type='text' name='freq'> KHz</td></tr>
+<tr><td>Bandwidth</td><td>
+      <select name="band">
+      <option value="6">6 MHz</option>
+      <option value="7" selected>7 MHz</option>
+      <option value="8">8 MHz</option>
+      </select>
+</td></tr>
+<tr><td></td><td><input type='submit' value='Scan'></td></tr>
+</form>
+
+</table>
+
+<br>
+<span class='pageTitle'>OR</span>
+<br>
+
+<form action='/servlet/ChannelDataRes' method='POST' accept-charset="UTF-8">
+<input type='hidden' name='action' value='11'>
+<input type='hidden' name='oldName' value='$chanOldName'>
+
+<strong>Add Custom Channel</strong>
+
+  <table cellpadding="2" cellspacing="2" class='channelScanResult'>
+    <tr> 
+      <td width="80" align="right">Name</td>
+      <td width="145"><input type='text' name='name' value=''></td>
+    </tr>
+    <tr> 
+      <td align="right">Frequency</td>
+      <td><input type='text' name='freq' value=''></td>
+    </tr>
+    <tr> 
+      <td align="right">BandWidth</td>
+      <td><input type='text' name='band' value=''></td>
+    </tr>
+    <tr>
+      <td align="right">Program ID</td>
+      <td><input name='programid' type='text' id="programid" value=''></td>
+    </tr>
+    <tr> 
+      <td align="right">Video ID</td>
+      <td><input type='text' name='videoid' value=''></td>
+    </tr>
+    <tr> 
+      <td align="right">Audio</td>
+      <td align="left" ><input size="5" type='text' name='audioid' value=''>
+      <select name="audioType">
+      <option value="1" selected>MPG</option>
+      <option value="2">AC3</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+    <td></td>
+    <td><input type='submit' value='Add'></td>
+    </tr>
+  </table>
+  <br>
+
+</form>
+</body>
+</html>

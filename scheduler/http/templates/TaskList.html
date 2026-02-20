@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this Task?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/settings.html' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span></a>
+<table width="80%" border="0" cellspacing="2" cellpadding="2">
+<tr>
+<td><strong>Task List</strong></td>
+<td align='right'>
+<a href='/servlet/SystemDataRes?action=18' class='noUnder' title="Export List"><img border=0 src='/images/export.png' align='absmiddle' width='24' height='24'>Export</a>
+<a href='/servlet/SystemDataRes?action=25' class='noUnder' title="Import List"><img border=0 src='/images/import.png' align='absmiddle' width='24' height='24'>Import</a>
+</td>
+</tr>
+</table>
+
+<table width="80%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="itemheading" width='1%'><strong>Enabled</strong></td>
+    <td class="itemheading" nowrap><strong>Name</strong></td>
+    <td class="itemheading" nowrap><strong>AutoRem</strong></td>
+    <td class="itemheading" nowrap><strong>Delay</strong></td>
+    <td class="itemheading" width="100%"><strong>Command</strong></td>
+    <td class="itemheading" width='1%' nowrap><strong>Action</strong></td>
+  </tr>
+  $taskList
+</table>
+<p>
+<form name='settings' method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="09">
+
+  <table width="80%" border="0" cellspacing="2" cellpadding="2">
+    <tr>
+      <td class="itemheading" colspan="2"><strong>Add a new Task</strong></td>
+    </tr>
+
+    <tr>
+      <td nowrap valign="center">
+
+      <table border='0' width="100%">
+      <tr><td nowrap align="right">Task Name</td><td width="100%"><input style="width:25%" type="text" name="name"> <input value="Add Task" type="submit"></td>
+      </table>
+
+      </td>
+    </tr>
+
+  </table>
+  </form>
+
+<form name="" method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input name="action" type="hidden" id="action" value="12">
+
+  <table width="80%" border="0" cellspacing="2" cellpadding="2">
+    <tr>
+      <td class="itemheading" colspan="2"><strong>Task Options</strong></td>
+    </tr>
+
+    <tr>
+    <td nowrap align="right">Default Task</td>
+	<td width="100%">$defEpgTaskSelect</td>
+	</tr>
+
+    <tr>
+    <td nowrap align="right">Pre Capture Task</td>
+	<td width="100%">$preTaskSelect <font size="-1">(See Note*)</font></td>
+	</tr>
+
+    <tr>
+    <td nowrap align="right">Capture Start Failed Task</td>
+	<td width="100%">$startErrorSelect <font size="-1">(See Note*)</font></td>
+	</tr>
+
+    <tr>
+    <td nowrap align="right">No Data Flowing Task</td>
+	<td width="100%">$noDataErrorSelect <font size="-1">(See Note*)</font></td>
+	</tr>
+
+    <tr>
+    <td nowrap align="right">Capture Details Task</td>
+	<td width="100%">$captureDetailsSelect <font size="-1">(See Note*)</font></td>
+	</tr>
+
+	<tr>
+	<td></td><td><input type="submit" value="Update"></td></tr>
+
+  </table>
+</form>
+
+
+<p>&nbsp;</p>
+<table width="80%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><p><strong><font size="+1">Tasks</font></strong><br>
+        Tasks can be used to launch external application to accomplish actions like process capture files, closing applications or restart device drivers.
+        You can set the default task that will be used as a post capture task for all Schedule items that are added using the drop down box above.
+        You can also set a Pre-Capture task that will run before any capture is run, this is useful for closing other applications or
+        resetting a problem driver before a capture is attempted.<br>
+        <br>
+        <strong>*Please Note:</strong><br>
+        For Pre-Capture Tasks, Capture Start Failed Tasks and No Data Flowing Task you need to set them up as follows or you may see timeout problems when running your tasks.<br>
+
+        <div style="padding-left: 25px">
+        Delay = 0<br>
+        When not capturing = False or Unchecked<br>
+        Maximum concurrent tasks >= 20<br>
+        Don't run within X minutes of a scheduled action = 0<br>
+        </div>
+
+      </td>
+  </tr>
+</table>
+<br><br><br>
+</body>
+</html>

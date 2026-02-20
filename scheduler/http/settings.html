@@ -1,0 +1,204 @@
+<html>
+<head>
+<title>System Settings and Config</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+
+<style>
+span.link
+{
+   padding-left:50px;
+}
+
+</style>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table cellpadding="3" cellspacing="8" border="0">
+   
+<tr>
+<td colspan="2" align="right">
+<a href='/' class="noUnder">
+<img border=0 src='/images/home.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>Home</span>
+</a>
+</td>
+</tr>
+  
+  
+<tr>
+<td colspan="2" align="center">
+<span class='areaTitle'>System Options and Settings</span>
+</td>
+</tr>
+   
+   
+
+<tr>
+<td valign="top" style="border: 1px solid #FFFFFF;" width="400px">
+<img border=0 src='/images/cardsetup.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>Devices and Channels</span>
+</td>
+<td valign="top" style="border: 1px solid #FFFFFF;">
+<img border="0" src="/images/ManageFiles.png" align="absmiddle" width="24" height="24"/>
+<span class='areaTitle'>Files & Paths</span>
+</td>
+</tr>
+
+<tr>
+   
+<td width="50%" valign="top" nowrap>   
+<a href='/servlet/SystemDataRes?action=04' class='noUnder'>
+<span class='areaTitle link'>Select Devices</span>
+</a>   
+<br>  
+<a href='/servlet/ChannelDataRes' class='noUnder'>
+<span class='areaTitle link'>Channel Settings</span>
+</a>   
+</td>
+
+<td width="50%" valign="top" nowrap>
+<a href="/servlet/SystemDataRes?action=27" class="noUnder">
+<span class="areaTitle link">Capture Paths and Names</span>
+</a>
+<br>
+<a href="/servlet/FileManagementDataRes" class="noUnder">
+<span class="areaTitle link">Manage Captured Files</span>
+</a>
+<br>
+<a href='/servlet/SystemDataRes?action=06' class='noUnder'>
+<span class='areaTitle link'>Auto Delete List</span>
+</a>
+</td>
+
+</tr>      
+   
+
+   
+   
+
+   
+<tr>
+<td valign="top" style="border: 1px solid #FFFFFF;">
+<img border=0 src='/images/auto_add.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>EPG Options</span>
+</td>
+<td valign="top" style="border: 1px solid #FFFFFF;">
+<img border=0 src='/images/reload.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>EPG Data Source Options</span>
+</td>
+</tr>
+
+<tr>
+   
+<td valign="top" nowrap>
+<a href='/servlet/EpgAutoAddDataRes?action=33' class='noUnder'>
+<span class='areaTitle link'>Edit Watch List</span>
+</a>
+<br>
+<a href='/servlet/EpgAutoAddDataRes?action=01' class='noUnder'>
+<span class='areaTitle link'>EPG Auto-Add List</span>
+</a>
+<br>
+<a href='/servlet/EpgAutoAddDataRes?action=05' class='noUnder'>
+<span class='areaTitle link'>EPG Match Lists</span>
+</a>
+<br>
+<a class='noUnder' href='/servlet/EpgAutoAddDataRes?action=15' onClick="return confirm('Are you sure you want to run the Auto-Add Scan?');"> 
+<span class='areaTitle link'>Run Auto-Add Scan</span>
+</a>
+<br>
+<a class='noUnder' href='/servlet/EpgAutoAddDataRes?action=25'>
+<span class='areaTitle link'>Auto-Add Conflicts</span>
+</a>
+</td>
+
+
+<td valign="top" nowrap>
+<a class='noUnder' href='/servlet/EpgDataRes?action=03' onClick="return confirm('Are you sure you want to re-load the EPG data from the data source?');"> 
+<span class='areaTitle link'>ReLoad EPG Data</span>
+</a>
+<br>
+<a class='noUnder' href='/servlet/EpgDataRes?action=16'> 
+<span class='areaTitle link'>EPG Data Source Settings</span>
+</a>
+<br>
+<a class='noUnder' href='/servlet/EpgDataRes?action=04'> 
+<span class='areaTitle link'>Channel Mapping</span>
+</a>
+<br>
+<a class='noUnder' href='/servlet/EpgDataRes?action=02'> 
+<span class='areaTitle link'>EPG Data Report</span>
+</a>
+</td>
+
+</tr>   
+   
+   
+   
+
+   
+   
+   
+<tr>
+<td valign="top" style="border: 1px solid #FFFFFF;">
+<img border=0 src='/images/RunTask.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Tasks</span>
+</td>
+
+<td valign="top" style="border: 1px solid #FFFFFF;">
+<img border=0 src='/images/Settings.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>General Options</span>
+</td>
+</tr> 
+
+<tr>
+   
+<td valign="top" nowrap>
+<a href='/servlet/SystemDataRes?action=08' class='noUnder'>
+<span class='areaTitle link'>Edit Tasks</span>
+</a>
+<br>
+<a href="/servlet/TaskManagementDataRes" class="noUnder">  
+<span class="areaTitle link">Show Active Tasks</span>
+</a> 
+</td>
+
+<td valign="top" nowrap>
+<a href='/servlet/SystemDataRes?action=41' class='noUnder'>
+<span class='areaTitle link'>Email Notification</span>
+</a> 
+<br>
+<a href='/servlet/SystemDataRes?action=02' class='noUnder'>
+<span class='areaTitle link'>General Options</span>
+</a>  
+<br> 
+<a href='/servlet/SystemDataRes' class='noUnder'>
+<span class='areaTitle link'>System Info</span>
+</a> 
+<br> 
+<a href='/servlet/SystemDataRes?action=45' class='noUnder'>
+<span class='areaTitle link'>Settings and Options Backup</span>
+</a> 
+<br>
+<a href='/servlet/SystemDataRes?action=19' class='noUnder'>
+<span class='areaTitle link'>Theme Interface Options</span>
+</a>
+
+</td>
+
+</tr>   
+   
+
+</table>
+
+<br><br><br><br><br><br>
+</body>
+</html>

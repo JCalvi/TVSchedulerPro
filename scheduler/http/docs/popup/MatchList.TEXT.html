@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>TV Scheduler Pro Help</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+
+</head>
+<body>
+<center>
+<img border=0 src='/images/logo.png' align='absmiddle' width='64' height='64'> <span class='pageTitle'> TV Scheduler Pro</span><br>
+
+<br><br>
+<table width="80%">
+<tr>
+<td valign="top">
+
+<b>MatchList TEXT matches</b><br>
+
+This type of match allows you to match a text string or RegEx query with any of the text fields of an Epg item.<p>
+For normal none RegEx matches you can use a wild card * at the beginning or end or both the beginning and end to show the following:<p>
+
+*TEXT - match ends with<br>
+TEXT* - match starts with<br>
+*TEXT* - match contains<br>
+TEXT - must match exactly<br>
+<p>
+
+You can also set a Case insensitive match that will match TexT Text or TEXT etc.<p>
+
+<b>RegEx Note:</b><br>
+RegEx is an advanced text query language called Regular Expressions.<p>
+Regular Expressions can sometimes be hard to understand and write but for simple matches they are relatively easy to create, for example:<p>
+<p>
+".*News.*" :- this would match all program names with the word "News" in them.<br><br>
+"(?i).*news.*" :- this would match all programs with the word "news" in them using Case-insensitive matching, i.e. News or nEws or NEWS or news etc<br><br>
+".*[Vv]oyager" :- this would match a program name that ended with Voyager or voyager.<br>
+<p>
+You can also use the Text, Subtitle Or Description Matcher with or without the single line modifier (?s) to match complicated sequences eg.<p>
+Two match conditions:<br>
+"(?i).*AFL.*" :- Title Match &...<br>
+"(?i).*(Richmond|Tigers).*" :- Title, Subtitle or Description :- this would match AFL in the title and Richmond in the subtitle. In this case AFL must be in the title, but Richmond or Tigers can be in either subtitle or description.<br><br>
+Single Match Conditions:<br>
+"(?is).*AFL.*(Richmond|Tigers).*" :- this would match all programs with AFL and Richmond or Tigers (Case Insensitive) within all the words added together in the title, subtitle and description in that order. This would match AFL in the title and Richmond in the subtitle as above, but could also match AFL in the subtitle and Tigers in the description.<br><br>
+"(?i).*AFL.*(Richmond|Tigers).*" :- omitting the "s" modifier means the match must be ALL contained within one of the fields, not spread over them. This would not match AFL in the title and Richmond in the subtitle, but would match AFL...Tigers in the description.<br><br>
+
+For more information an excellent reference can be found <a href="http://www.regular-expressions.info/index.html"> here.
+
+  </tr>
+</table>
+
+<br><br>
+</body>
+</html>

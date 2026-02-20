@@ -1,0 +1,1 @@
+java -Xmx512M --enable-native-access=ALL-UNNAMED -jar TVSchedulerPro.jar -log -port 8420

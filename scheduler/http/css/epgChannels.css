@@ -1,0 +1,16 @@
+<!--
+/*
+
+In this file you can specify the background colours of the EPG channels.
+
+Set the style by specifying a new line for each channel with the background
+colour you want, use the following as a template, change the X to the
+channel name as it appears in your EPG.
+
+th.channel_X {background: #FF0000;}
+
+*/
+-->
+
+th.channel_Base {padding: 2px; font-weight: bold; font-size: 16px;}
+

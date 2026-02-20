@@ -1,0 +1,198 @@
+<html>
+<head>
+<title>System Settings and Config</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script>
+var usingCAPTCHA = $usingCAPTCHA$;
+function checkID()
+{
+   if(usingCAPTCHA == true && document.settings.sessionID.value.length != 6)
+   {
+      alert("Please enter the security ID at the bottom of the form!");
+      return false;
+   }
+   else
+    return true;
+}
+function setSecurityImage()
+{
+   if(usingCAPTCHA == true)
+   {
+      var captchaSpan = document.getElementById("captcha");
+      if(captchaSpan)
+      {
+         captchaSpan.style.visibility = "visible";
+      }
+         
+      var thisDate = new Date();
+      var securityImageURL = "/servlet/ImageDataRes?sessionID=1&time=" + thisDate.toGMTString();
+      var image = document.getElementById("SecurityImage");
+      if(image)
+      {
+         image.src = securityImageURL;
+         setTimeout("setSecurityImage();", 180000);
+      }
+   }
+}
+function checkSave()
+{
+   if(document.saveForm.WatchList.checked == false &&
+      document.saveForm.MatchList.checked == false &&
+      document.saveForm.AutoAdd.checked == false &&
+      document.saveForm.ChannelMapping.checked == false &&
+      document.saveForm.DeviceSelection.checked == false &&
+      document.saveForm.AgentMapping.checked == false &&
+      document.saveForm.Channels.checked == false &&
+      document.saveForm.Tasks.checked == false &&
+      document.saveForm.SystemProp.checked == false &&
+      document.saveForm.Schedules.checked == false 
+      )
+   {
+      alert("At least one settings group has to be selected");
+      return false;
+   }
+   
+   return true;
+}
+</script>
+</head>
+<body onLoad="setSecurityImage();" onpageshow="if (event.persisted) setSecurityImage();">
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table cellpadding="4" cellspacing="0" border="0" width="400">
+   
+<tr>
+<td colspan="2" align="right">
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>System Index</span>
+</a>
+</td>
+</tr>
+  
+  
+<tr>
+<td colspan="2" align="center">
+<span class='areaTitle'>Settings and Options Backup</span>
+</td>
+</tr>   
+   
+   
+   
+   
+   
+<tr>
+<td colspan="2" valign="top" style="border: 1px solid #FFFFFF;">
+<img border=0 src='/images/export.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>Save Settings</span>
+</td>
+</tr>
+
+<tr>
+<td>   
+
+From the following list select which settings you would 
+like to save then click the "Save Now" button and you 
+will be prompted to save the settings file. The settings file
+is a standard ZIP file containing all of your selected 
+settings in the one file.
+
+</td>
+</tr> 
+
+<tr>
+   
+<td valign="top" style="padding-left:50px;">   
+<form name="saveForm" action='/servlet/SystemDataRes?action=38' method='POST' onSubmit="return checkSave();">
+
+<label><input type="checkbox" name="WatchList" value="true" checked> Watch List Data</label><br>
+<label><input type="checkbox" name="MatchList" value="true" checked> Match List Data</label><br>
+<label><input type="checkbox" name="AutoAdd" value="true" checked> Auto-Add Data</label><br>
+<label><input type="checkbox" name="ChannelMapping" value="true" checked> EPG channel mapping Data</label><br>
+<label><input type="checkbox" name="DeviceSelection" value="true" checked> Device Selection Data</label><br>
+<label><input type="checkbox" name="AgentMapping" value="true" checked> Browser Agent to Theme Mapping Data</label><br>
+<label><input type="checkbox" name="Channels" value="true" checked> Channels Data</label><br>
+<label><input type="checkbox" name="Tasks" value="true" checked> Tasks Data</label><br>
+<label><input type="checkbox" name="SystemProp" value="true" checked> System Setup Data</label><br>
+<label><input type="checkbox" name="Schedules" value="true" checked> Current Schedules Data</label><br>
+<label><input type="checkbox" name="AuthSettings" value="true" checked> Authentication Settings</label><br>
+<br>
+<input type="submit" value="Save Now">
+
+</form>
+
+</td>
+</tr>      
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+<tr>
+<td colspan="2" valign="top" style="border: 1px solid #FFFFFF;">
+<img border="0" src="/images/import.png" align="absmiddle" width="24" height="24"/>
+<span class='areaTitle'>Load Settings</span>
+</td>
+</tr>
+
+<tr>
+<td>   
+
+Click the "Browse" button and when prompted browse to the settings file 
+you would like to load.
+From the following list select which settings you would 
+like to load form the settings file.
+Then enter the security ID and click the "Load Now" button.
+
+
+</td>
+</tr> 
+
+<tr>
+<td valign="top" style="padding-left:50px;">
+<FORM name="settings" action="/servlet/SystemDataRes?action=39" enctype="multipart/form-data" method="post" onSubmit="return checkID();">
+<INPUT type="file" name="file"><br>
+<br>
+<label><input type="checkbox" name="WatchList" value="true" checked> Watch List Data</label><br>
+<label><input type="checkbox" name="MatchList" value="true" checked> Match List Data</label><br>
+<label><input type="checkbox" name="AutoAdd" value="true" checked> Auto-Add Data</label><br>
+<label><input type="checkbox" name="ChannelMapping" value="true" checked> EPG channel mapping Data</label><br>
+<label><input type="checkbox" name="DeviceSelection" value="true" checked> Device Selection Data</label><br>
+<label><input type="checkbox" name="AgentMapping" value="true" checked> Browser Agent to Theme Mapping Data</label><br>
+<label><input type="checkbox" name="Channels" value="true" checked> Channels Data</label><br>
+<label><input type="checkbox" name="Tasks" value="true" checked> Tasks Data</label><br>
+<label><input type="checkbox" name="SystemProp" value="true" checked> System Setup Data</label><br>
+<label><input type="checkbox" name="Schedules" value="true" checked> Current Schedules Data</label><br>
+<label><input type="checkbox" name="AuthSettings" value="true" checked> Authentication Settings</label><br>
+<br>
+<INPUT type="submit" value="Load Now">
+<br><br>
+<span id="captcha" style="visibility:hidden;">Security ID <input type="text" size="6" maxlength="6" name="sessionID" value=""> <img id='SecurityImage' align='absmiddle' src='/images/secure-blank.png'> <img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' align='absmiddle' onClick="showHelp('security.captcha');" width='24' height='24'></span><br>
+<br>
+</FORM>
+</td>
+</tr>     
+   
+
+   
+
+
+
+
+</table>
+
+<br><br><br><br><br><br>
+</body>
+</html>

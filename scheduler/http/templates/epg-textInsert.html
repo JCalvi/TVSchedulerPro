@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script>
+function addText(text)
+{
+   var inputBox = window.opener.document.getElementById("textSearch");
+
+   var lsRegExp = /\+/g;
+   var name = unescape(String(text).replace(lsRegExp, " "));
+   
+   inputBox.value = name;
+   
+   window.close();
+}
+
+</script>
+
+</head>
+<body>
+
+Channels:<br>
+$channels
+<p>
+
+Categories:<br>
+$categories
+<p>
+
+Program Titles:<br>
+$programs
+<p>
+
+</body>
+</html>

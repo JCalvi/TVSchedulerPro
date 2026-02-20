@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function showInsert()
+{
+   var w = screen.availWidth;
+   var h = screen.availHeight;
+
+   var popW = 600;
+   var popH = 300;
+
+   var leftPos = (w - popW) / 2;
+   var topPos = (h - popH) / 2;
+
+   var fileName = "/servlet/EpgAutoAddDataRes?action=19";
+   var popupWin = window.open(fileName ,'insert_popup','width=' + popW + ',height=' + popH + ',top=' + topPos + ',left=' + leftPos +',scrollbars=yes,resizable=yes');
+   popupWin.focus();
+}
+
+</script>
+</head>
+<body>
+<center>
+<br><br>
+
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<input type="hidden" name="action" value="40">
+<input type="hidden" name="name" value="$name">
+<input type="hidden" name="index" value="$index">
+
+<table width="100%" border="0">
+
+<tr><td colspan="2">
+<b>Edit Text Match</b>
+</td></tr>
+
+
+<tr>
+<td width="1%">
+Text
+</td>
+<td nowrap>
+<input type="text" name="searchText" value="$textValue" id="textSearch" style="width: 90%;">
+<a href="#" onClick="showInsert();"><img src="/images/RunTask.png" alt="Insert Text" align="absmiddle" border="0" width='24' height='24'></a><img align="ABSMIDDLE" style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' onClick="showHelp('MatchList.TEXT');" width='24' height='24'>
+</td>
+</tr>
+
+<tr>
+<td>
+Location
+</td>
+<td>
+<select name="field" style="width: 200px;">
+$fieldOptionData
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+Exists
+</td>
+<td>
+<select name="exists" style="width: 200px;">
+$existsOptionData
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+Type
+</td>
+<td>
+<select name="flags" style="width: 200px;">
+$flagOtpionData
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+
+</td>
+<td>
+<input type="submit" value="Update">
+</td>
+
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

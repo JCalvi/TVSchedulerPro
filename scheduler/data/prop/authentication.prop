@@ -1,0 +1,89 @@
+##########################################################################
+# Access Control Settings
+#
+# Use the Authentication setting on the General Options web page to enable
+# authentication or you can override all security authentication here in
+# this file.
+#
+# This file contains a list of rules, users and trusted IP addresses
+# This allows you to set up restricted username/password access
+# to all pages or just some pages if required.
+#
+#
+##########################################################################
+
+##########################################################################
+# Simple Setup
+#
+# Just uncomment the following lines to enable simple password access
+# change the <user> name <password> to what you want
+
+#user=users:<user>:<password>
+#rule=*:*:*
+
+# read the following sections for more information on available
+# configuration options and more advanced authentication models.
+#
+##########################################################################
+
+##########################################################################
+# User List
+#
+# Add each new user on a new line starting with user=
+# The group will be matched against the rule group that is required for the
+# rule.
+#
+# Syntax:
+# user=<group>:<username>:<password>
+
+# Example:
+#user=users:jeff:mypassword
+#user=admin:marc:welcome
+
+##########################################################################
+
+##########################################################################
+# Access restrictions rules
+#
+# Syntax:
+# rule=<group>:<url>:<parameter list>
+#
+# Rules are matched down the list, the first rule that matches is the
+# one chosen for a given request.
+#
+# The URL match is done as a part match or starts with match meaning that
+# only the starting part you enter needs to match.
+# If the actual URL is longer it is still a match.
+#
+# The parameters are separated by & so to specify more than one parameter
+# to match just add it in the rule like action=02&myparam=test
+# this will mean both parameters will need to exist for this rule to match.
+#
+# * is the wild card match all
+#
+# Example:
+# The following rule means that any URL that starts with /servlet/SystemDataRes
+# and has parameter data of action=02 will require a user with group admin access
+
+#rule=admin:/servlet/SystemDataRes:action=02
+
+# to enable generic password protection for all pages for all groups and all
+# parameters use the following rule.
+
+#rule=*:*:*
+
+##########################################################################
+
+##########################################################################
+# Trusted IP list
+#
+# Add each trusted IP on a new line starting with trusted=
+# trusted=<IP>
+# no authentication is required for connection from these addresses
+# You can use sub net matching also by just using the subnet
+# i.e 192.168.1. will match all IP's in the 192.168.1.* sub net
+
+#trusted=127.0.0.1
+#trusted=192.168.1.
+
+##########################################################################

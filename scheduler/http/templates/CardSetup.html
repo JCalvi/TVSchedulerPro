@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+
+<SCRIPT language="JavaScript">
+   var cardsInUse = $cardCount;
+   if(cardsInUse > 0)
+   {
+      alert("You can not make changes to the devices list while there are captures running!");
+   }
+</SCRIPT>
+
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class="areaTitle">System Index</span>
+</a><p>
+<strong>Device Selection</strong>
+<table border="0" width="550px">
+
+$cardList
+
+</table>
+<br><br><br>
+<table border="0" width="800px">
+
+<tr>
+<td>
+<p>
+<strong>Currently Selected Devices:</strong>
+<br>
+These devices will be used by TV Scheduler Pro. You can change the order that TV Scheduler Pro will use them in by moving them up and down the list 
+by clicking on the <img src='/images/up01.png' align='absmiddle' width='7' height='7'><img src='/images/down01.png' align='absmiddle' width='7' height='7'> images. You can remove the device from the list by clicking the 
+<img border='0' alt='DEL' align='absmiddle' src='/images/delete.png' width='24' height='24'> image next to the device you want to remove.
+</p>
+<p>
+<strong>Devices Available But Not Selected:</strong>
+<br>
+These devices are available but TV Scheduler Pro will not use them. Click the green <img border='0' alt='ADD' src='/images/add.png' align='absmiddle' width='24' height='24'> 
+to add them to the selected devices list for TV Scheduler Pro to be able to use them.
+</p>
+<p>
+<strong>Showing Device IDs:</strong>
+<br>
+TV Scheduler Pro uses your device system ID to track its usage and specify what device is to be used for captures. This ID is a string
+with all the information required to uniquely identify the device, for this reason it can be quite long. By default the device list does not show this
+ID. To show the IDs for your devices click the "Show IDs" link in the title of the Currently Selected Devices, this will then show you the 
+IDs for the devices you have selected. To hide them again click the "Hide IDs" link.
+</p>
+<p>
+<strong>Missing Devices:</strong>
+<br>
+Devices that have been added to the selected device list but are no longer available due to being removed from the system or hardware/driver failure will
+show up in the selected device list with <img border=0 src='/images/exclaim.png' align='absmiddle' width='22' height='24'> icon next to the name 
+of the device. This means the device is no longer available and you should either fix the offending hardware/driver or remove the device from the 
+selected device list.
+</p>
+
+
+
+
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

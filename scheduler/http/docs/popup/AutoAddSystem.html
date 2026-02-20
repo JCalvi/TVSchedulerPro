@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>TV Scheduler Pro Help</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+
+</head>
+<body>
+<center>
+<img border=0 src='/images/logo.png' align='absmiddle' width='64' height='64'> <span class='pageTitle'> TV Scheduler Pro</span><br>
+
+<br><br>
+<table width="80%">
+<tr>
+<td valign="top">
+
+<b>EPG Auto-Add System</b><br>
+The EPG Auto-Add system allows you to set up a list of automatically
+created schedules that match programs start and stop times from the EPG.
+These matches are based on keyword, time and day of week, they also contain a number
+of settings the created schedule items will inherit when created,
+these settings include start and end time buffer, capture type and
+post capture task.
+<p>
+
+The Auto-Add run can be run automatically immediately after new EPG data is imported, or manually if required.<p>
+
+When the Auto-Add action is called the following process takes place:<p>
+
+All current none running EPG Auto-Add schedule items are removed form the system.<br>
+The system starts looking for matches using the following search order
+<ol>
+<li>For each Auto-Add item in the list starting from the top of the list</li>
+<li>Then for each Mapped Channel (none mapped channels are ignored) in the order that that appear on the channel map page</li>
+<li>Then for each EPG program for that mapped channel in start time order</li>
+</ol>
+</li>
+</ul>
+
+The above means that the priority that Auto-Add items are matched and added are as follows
+<ul>
+<li>Auto-Add list order -> Channel Map order -> EPG item start time</li>
+</ul>
+
+When a match is found it might be possible that this EPG program has an existing schedule already associated with it.
+The "Already Exists Detection" mechanism can be used to check the schedule list for schedules that might have already
+been created from this EPG program.
+<p>
+
+</tr>
+</table>
+
+<br><br>
+</body>
+</html>

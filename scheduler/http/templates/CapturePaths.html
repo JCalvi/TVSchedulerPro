@@ -1,0 +1,249 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script>
+function verifyPattern()
+{
+   var invalidChars = new Array(":", "*", "?", "\"", "<", ">", "|");
+
+   for(var x = 0; x < invalidChars.length; x++)
+   {
+	  if(document.newPattern.pattern.value.indexOf(invalidChars[x]) > -1)
+	  {
+	     alert("Invalid Character '" + invalidChars[x] + "'");
+	     return false;
+	  }
+   }
+   return true;
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table class="areaHeading">
+<tr>
+<td width="50%" valign="bottom">
+<center>
+<span class='areaTitle'> Paths and Names Settings</span>
+</center>
+</td>
+<td width="50%" align="right">
+
+<table>
+
+<tr>
+<td>
+<a href='/settings.html' class='noUnder'>
+<img alt="Home" border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Settings</span></a>
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<br>
+<table border="0" width="800">
+<tr><td colspan='3' style='border: 1px solid #FFFFFF;'>
+Capture Paths
+</td>
+</tr>
+
+$capturePaths
+
+<tr><td colspan="3" align="center">
+<span class='areaTitle' style="cursor:pointer;cursor:hand;" onClick="openDetails('/servlet/SystemDataRes?action=31');">
+<img alt="Add Path" border=0 src='/images/add.png' align='absmiddle' width='24' height='24'> Add Path
+</spam>
+</td><tr>
+
+</table>
+
+<br>
+
+<table border="0" width="800">
+<tr><td colspan='2' style='border: 1px solid #FFFFFF;'>
+Multiple Path Settings
+</td>
+</tr>
+
+<form action="/servlet/SystemDataRes" method="POST">
+<input type="hidden" name="action" value="35">
+
+<tr>
+<td nowrap align="right">Minimum Free Space (Soft)</td>
+<td align="left" width="99%"> <input type="text" name="minSpaceSoft" value="$minSpaceSoft" size="5"> MBytes</td>
+<tr>
+<tr>
+<td nowrap align="right">Minimum Free Space (Hard)</td>
+<td align="left" width="99%"> <input type="text" name="minSpaceHard" value="$minSpaceHard" size="5"> MBytes</td>
+<tr>
+
+<tr>
+<td nowrap align="right">Delete to Free Space</td>
+<td align="left" width="99%"> <input type="checkbox" name="DeleteToFreeSpace" value="true" $DeleteToFreeSpace> </td>
+<tr>
+
+<tr>
+<td nowrap align="right">AutoSelect Type </td>
+<td align="left" width="99%"> <select name="AutoSelectType"> $AutoSelectType </select></td>
+<tr>
+
+<tr>
+<td nowrap align="right">Include Proposed Capture </td>
+<td align="left" width="99%"> <input type="checkbox" name="IncludeThisCapture" value="true" $IncludeThisCapture></td>
+<tr>
+
+<tr>
+<td nowrap align="right">Capture Data Rate </td>
+<td align="left" width="99%"> <input type="text" name="AverageDataRate" value="$AverageDataRate" size="8"> Average Bits/Second</td>
+<tr>
+
+<tr>
+<td nowrap align="right"></td>
+<td align="left" width="99%"><input type="submit" value="Update"></td>
+<tr>
+
+
+
+</form>
+
+</table>
+
+<br>
+
+<table border="0" width="800">
+<tr><td colspan='3' style='border: 1px solid #FFFFFF;'>
+File Name Patterns
+</td>
+</tr>
+
+
+$fileNamePatterns
+
+<tr><td colspan="3" align="center">
+<form name="newPattern" action="/servlet/SystemDataRes" method="POST" onSubmit="return verifyPattern();">
+<input type="hidden" name="action" value="29">
+Add New Pattern : <input size="40" type="text" name="pattern"><input type="submit" value="Add">
+</form>
+</td><tr>
+
+</table>
+
+<br><br>
+
+<table width="800">
+
+<tr>
+<td valign="top">
+<strong>Capture Paths</strong><br>
+Multiple capture paths/drives can be added and used and when creating a schedule item you can pick which
+path/drive to use for the capture. You can also select the path/drive to use when an Auto-Add item adds a new
+schedule item.<br>
+<br>
+By default when adding new schedule items and Auto-Add items the AutoSelect option will
+selected. AutoSelect will chose the best path/drive based on the AutoSelect type (see AutoSelect Type below).
+
+<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<strong>Multiple Path Settings</strong><br>
+
+Minimum Free Space (Soft):<br>
+This value is used to determine the amount of free space available on a path before a capture is started on that particular path.
+At least this much free space is required before a capture can be started on a path.<br>
+<br>
+
+Minimum Free Space (Hard):<br>
+The amount of free space at which point a capture will be stopped. The capture is then marked for
+restart and on restarting a new path is selected based on your AutoSelect options. Hopefully there is another path set up that has enough space left to take the capture.<br>
+<br>
+
+Delete to Free Space<br>
+When selected this will try to deleted the oldest auto delete captures, these are captures that have the auto delete set to true in their options.
+The oldest will be deleted until the soft free space limit is reached.<br>
+<br>
+
+AutoSelect Type:<br>
+There are two types of AutoSelect, the first picks the drive with the most available free space from your list of
+paths/drives, this makes sure your capture has the best chance for completing without having to stop the capture
+and select a new path/drive to complete it.<br>
+The Second AutoSelect type picks the first path/drive with enough space (x2 the minimum free space value) and uses
+that. This might not be the drive with the most space and the capture might have to move on to a new path/drive as
+it fills it up with capture data.<br>
+This is a global setting and applies to all schedules that use the AutoSelect option for their path.<br>
+<br>
+
+Include Proposed Capture:<br>
+When checked takes into account how much drive space would be required to do the proposed capture, it uses the Capture Data Rate (see below)
+and the capture duration to calculate the amount of space for the proposed capture and then subtracts this form the free space
+of the path/drive before doing the Minimum Free Space calculation (see Minimum Free Space above). This means that
+it should not be necessary to split the capture across multiple paths as a path with enough space should be selected.<br>
+<br>
+
+Capture Data Rate<br>
+This is the average data rate in bits per second for the full capture, this includes everything that is captured to the
+file thus it might be more for some channels with multiple audio tracks and HD channels. It might also be more for Full TS
+captures, as you can see this is an indication only and you can set this higher than needed to make sure you allow for enough space
+for the capture.
+
+<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+<strong>File Name Patterns</strong><br>
+
+When TV Scheduler Pro runs it uses a pattern match substitution to create the file name to capture to, this pattern match uses the following keys to do the replace:<br><br>
+
+<table>
+<tr><td valign='top' nowrap>%y =</td><td valign='top'>Year</td></tr>
+<tr><td valign='top' nowrap>%m =</td><td valign='top'>Month</td></tr>
+<tr><td valign='top' nowrap>%d =</td><td valign='top'>Day of Month</td></tr>
+<tr><td valign='top' nowrap>%h =</td><td valign='top'>Hour 24 hour time</td></tr>
+<tr><td valign='top' nowrap>%M =</td><td valign='top'>Minute</td></tr>
+<tr><td valign='top' nowrap>%n =</td><td valign='top'>The name of the item</td></tr>
+<tr><td valign='top' nowrap>%s =</td><td valign='top'>The sub title of the EPG item the schedule was created from</td></tr>
+<tr><td valign='top' nowrap>%t =</td><td valign='top'>The category of the EPG item the schedule was created from</td></tr>
+<tr><td valign='top' nowrap>%c =</td><td valign='top'>Channel name</td></tr>
+<tr><td valign='top' nowrap>%D =</td><td valign='top'>Day of week</td></tr>
+</table>
+
+<br>
+You can also specify directory sub paths and if the path does not exist TV Scheduler Pro
+will automatically create it for you.<br>
+
+<br>
+You can also add the word <b>'default'</b> as a pseudo pattern.
+Any schedule that has the filename pattern set as 'default' will substitute the current <b>first real</b> pattern in the pattern list each time a schedule is created for it.
+'default' can be set as the first item in the list so that when adding new schedules/auto-adds 'default' is the first pattern shown. The second pattern will be substituted in this case.
+It can also be moved down the list if preferred and only applied sometimes. It can also be deleted and/or added back in at a later date.
+<br>
+
+</td>
+</tr>
+
+</table>
+
+<br>
+<br>
+
+</body>
+</html>

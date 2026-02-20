@@ -1,0 +1,38 @@
+<buttons back="/servlet/ApplyTransformRes?xml=root&amp;xsl=kb-buttons">
+
+  <button name="Program Guide">
+    <url>/servlet/KBEpgDataRes</url>
+    <confirm>false</confirm>
+  </button>
+  
+  <button name="Schedule List">
+    <url>/servlet/KBScheduleDataRes?start=0&amp;scshow=42&amp;filter=0</url>
+    <confirm>false</confirm>
+  </button>
+  
+  <button name="Program Search">
+    <url>/servlet/KBEpgItemsRes?action=03&amp;start=0&amp;scshow=38</url>
+    <confirm>false</confirm>
+  </button>
+  
+  <button name="Manual Schedule">
+    <url>/servlet/KBScheduleDataRes?action=01</url>
+    <confirm>false</confirm>
+  </button>
+  
+  <button name="Auto-Add List">
+    <url>/servlet/KBAutoAddRes?start=0&amp;scshow=38</url>
+    <confirm>false</confirm>
+  </button>
+  
+  <button name="File Manager">
+  <url>/servlet/KBFileManagerRes?start=0&amp;scshow=38</url>
+  <confirm>false</confirm>
+  </button>
+  
+  <button name="System Settings">
+    <url>/servlet/ApplyTransformRes?xml=sys-settings&amp;xsl=kb-buttons</url>
+    <confirm>false</confirm>
+  </button>
+
+</buttons>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/servlet/ChannelDataRes' class="noUnder"> <img border=0 src='/images/home.png' align='absmiddle' width='24' height='24'> 
+Channel Setup Page</a> 
+<p>
+
+
+<form action='/servlet/ChannelDataRes' method='POST' accept-charset="UTF-8">
+<input type='hidden' name='action' value='11'>
+<input type='hidden' name='oldName' value='$chanOldName'>
+
+  <table cellpadding="6" cellspacing="4" class='channelScanResult'>
+    <tr class='scanChannelHeading'> 
+      <td width="80" align="right" class='scanChannelHeadingDataName'>Name</td>
+      <td width="145"><input type='text' name='name' value='$name'></td>
+    </tr>
+    <tr class='scanChannelHeading'> 
+      <td align="right" class='scanChannelHeadingDataName'><span class="scanChannelHeadingData">Frequency</span></td>
+      <td><input type='text' name='freq' value='$frequency'></td>
+    </tr>
+    <tr class='scanChannelHeading'> 
+      <td align="right" class='scanChannelHeadingDataName'><span class="scanChannelHeadingData">BandWidth</span></td>
+      <td><input type='text' name='band' value='$bandwidth'></td>
+    </tr>
+    <tr class='scanChannelHeading'>
+      <td align="right" class='scanChannelHeadingDataName'>Program ID</td>
+      <td><input name='programid' type='text' id="programid" value='$programid'></td>
+    </tr>
+    <tr class='scanChannelHeading'> 
+      <td align="right" class='scanChannelHeadingDataName'><span class="scanChannelHeadingData">Video 
+        ID </span></td>
+      <td><input type='text' name='videoid' value='$videopid'></td>
+    </tr>
+    <tr class='scanChannelHeading'> 
+      <td align="right" class='scanChannelHeadingDataName'><span class="scanChannelHeadingData">Audio</span></td>
+      <td align="left" ><input size="5" type='text' name='audioid' value='$audiopid'>
+      <select name="audioType">
+      $audioType
+      </select>
+      </td>
+    </tr>
+    <tr class='scanChannelHeading'> 
+      <td align="right" class='scanChannelHeadingDataName'><span class="scanChannelHeadingData">Capture Type</span></td>
+      <td>
+      <select name="captureType">
+      $captureType
+      </select>
+      </td>
+    </tr>    
+  </table>
+  <br>
+<input type='submit' value='Update'>
+</form>
+</body>
+</html>

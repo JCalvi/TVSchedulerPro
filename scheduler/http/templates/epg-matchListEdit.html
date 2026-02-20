@@ -1,0 +1,212 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function showInsert()
+{
+   var w = screen.availWidth;
+   var h = screen.availHeight;
+
+   var popW = 600;
+   var popH = 300;
+
+   var leftPos = (w - popW) / 2;
+   var topPos = (h - popH) / 2;
+
+   var fileName = "/servlet/EpgAutoAddDataRes?action=19";
+   var popupWin = window.open(fileName ,'insert_popup','width=' + popW + ',height=' + popH + ',top=' + topPos + ',left=' + leftPos +',scrollbars=yes,resizable=yes');
+   popupWin.focus();
+}
+
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this match item?");
+}
+
+function editTextType(name, index)
+{
+   var w = screen.availWidth;
+   var h = screen.availHeight;
+
+   var popW = 600;
+   var popH = 250;
+
+   var leftPos = (w - popW) / 2;
+   var topPos = (h - popH) / 2;
+
+   var fileName = "/servlet/EpgAutoAddDataRes?action=39&name=" + name + "&index=" + index;
+   var popupWin = window.open(fileName ,'edittext_popup','width=' + popW + ',height=' + popH + ',top=' + topPos + ',left=' + leftPos +',scrollbars=yes,resizable=yes');
+   popupWin.focus();
+}
+
+</script>
+
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/servlet/EpgAutoAddDataRes?action=05' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> Back to Match Item List
+</a>
+<p>
+<b>$title</b>
+<table border="0" cellspacing="5" cellpadding="5">
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<tr><td style="border: 1px solid #FFFFFF;">
+<input type="hidden" name="action" value="09">
+<input type="hidden" name="oldname" value="$name"><b>Name : </b>
+<input type="text" name="name" value="$name">
+<input type="submit" value="Update"></td></tr>
+</form>
+
+<tr><td><strong>List of Match Items</strong></td></tr>
+<tr><td>
+<table border="0" cellspacing="2" cellpadding="2" width="100%">
+$matchItems
+</table>
+</td></tr>
+
+<tr><td><strong>Create New Item</strong></td></tr>
+
+<tr><td style="border: 1px solid #FFFFFF;">
+
+<table width="100%">
+<tr>
+<td nowrap valign="top">
+<b>Text Match:</b>
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<input type="hidden" name="action" value="10">
+<input type="hidden" name="name" value="$name">
+
+<input type="text" name="searchText" value"" id="textSearch">
+<a href="#" onClick="showInsert();"><img src="/images/RunTask.png" alt="Insert Text" align="absmiddle" border="0" width='24' height='24'></a>
+
+<select name="field">
+<OPTION VALUE="0">Title
+<OPTION VALUE="4">Subtitle
+<OPTION VALUE="1">Description
+<OPTION VALUE="5">Title, Subtitle Or Description
+<OPTION VALUE="2">Channel
+<OPTION VALUE="6">Actor
+<OPTION VALUE="3">Category
+</select>
+
+<select name="exists">
+<OPTION VALUE="true">Exists
+<OPTION VALUE="false">Not Exists
+</select>
+
+<select name="flags">
+<OPTION VALUE="0">Case Sensitive
+<OPTION VALUE="1">Case Insensitive
+<OPTION VALUE="2">RegEx
+</select>
+
+<input type="submit" value="Add">
+</form>
+</td>
+<td valign="top" align="right">
+<img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' onClick="showHelp('MatchList.TEXT');" width='24' height='24'>
+</td>
+</tr>
+</table>
+
+</td></tr>
+
+<tr><td style="border: 1px solid #FFFFFF;">
+
+<table width="100%">
+<tr>
+<td valign="top">
+<b>Time Span:</b>
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<input type="hidden" name="action" value="11">
+<input type="hidden" name="name" value="$name">
+From <input type="text" name="span_from_hour" value="0" size="2" maxlength="2">:<input type="text" name="span_from_min" value="0" size="2" maxlength="2"> 
+To <input type="text" name="span_to_hour" value="0" size="2" maxlength="2">:<input type="text" name="span_to_min" value="0" size="2" maxlength="2">
+<!-- Calvi changes -->
+Type <input type="text" name="span_type" value="0" size="1" maxlength="1">
+<input type="submit" value="Add">
+</form>
+</td>
+<td valign="top" align="right">
+<img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' onClick="showHelp('MatchList.SPAN');" width='24' height='24'>
+</td>
+</tr>
+</table>
+
+</td></tr>
+
+<tr><td style="border: 1px solid #FFFFFF;">
+
+<table width="100%">
+<tr>
+<td valign="top">
+<b>Days:</b>
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<input type="hidden" name="action" value="12">
+<input type="hidden" name="name" value="$name">
+Sun<input type="checkbox" name="sun" value="1" checked> Mon<input type="checkbox" name="mon" value="1" checked> Tue<input type="checkbox" name="tue" value="1" checked> Wed<input type="checkbox" name="wed" value="1" checked> Thur<input type="checkbox" name="thur" value="1" checked> Fri<input type="checkbox" name="fri" value="1" checked> Sat<input type="checkbox" name="sat" value="1" checked> 
+<input type="submit" value="Add">
+</form>
+</td>
+<td valign="top" align="right">
+<img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' onClick="showHelp('MatchList.DAYS');" width='24' height='24'>
+</td>
+</tr>
+</table>
+
+</td></tr>
+
+<tr><td style="border: 1px solid #FFFFFF;">
+
+<table width="100%">
+<tr>
+<td valign="top">
+<b>Flags:</b>
+<form action="/servlet/EpgAutoAddDataRes" method="GET" accept-charset="UTF-8">
+<input type="hidden" name="action" value="32">
+<input type="hidden" name="name" value="$name">
+
+<select name="flagID">
+<option value="0">Repeat</option>
+<option value="1">Live</option>
+<option value="2">Wide Screen</option>
+<option value="3">High Definition</option>
+<option value="4">Closed Caption</option>
+<option value="5">Premiere</option>
+</select> = 
+<select name="flagValue">
+<option value="1">TRUE</option>
+<option value="0">FALSE</option>
+</select>
+
+<input type="submit" value="Add">
+</form>
+</td>
+<td valign="top" align="right">
+<img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' onClick="showHelp('MatchList.FLAGS');" width='24' height='24'>
+</td>
+</tr>
+</table>
+
+</td></tr>
+
+</table>
+
+<a href="/servlet/EpgAutoAddDataRes?action=08&name=$URLname&show=1">Show Search Results</a><br>
+
+
+$searchResult
+
+
+</body>
+</html>

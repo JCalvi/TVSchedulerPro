@@ -1,0 +1,313 @@
+body
+{
+   opacity: 0.8;
+   font-family: Verdana, Tahoma Bold;
+   background-color: transparent;
+   color: #DDDDFF;
+   text-decoration: none;
+   text-align:center;
+}
+
+span.solidText
+{
+   white-space: nowrap;
+   overflow: hidden;
+   width:100%;
+}
+
+span.epgTitle
+{
+   white-space: nowrap;
+   font-weight: bold;
+   font-size: 18px;
+   padding: 0px;
+}
+
+table.epgHeader
+{
+   width:99%;
+   font-size: 16px;
+   margin: 0px auto 0px auto;
+   padding: 0px;
+   border: 0px none #000000;
+   border-spacing:0;
+   border-collapse:collapse;   
+   table-layout:fixed;
+   position:fixed;
+   _position:absolute;
+   top:0;
+   _left:25px;
+   height:55px;
+   z-index:1;
+}
+
+table.epgFooter
+{
+   width:99%;
+   font-size: 16px;
+   margin: 0px auto 0px auto;
+   padding: 0px;
+   border: 0px none #000000;
+   border-spacing:0;
+   border-collapse:collapse;   
+   table-layout:fixed;
+   position:fixed;
+   _position:absolute;
+   bottom:0;
+   _top:expression(document.body.scrollTop+document.body.clientHeight-this.clientHeight);
+   _left:25px;
+   z-index:1;
+}
+
+table.epgTableTimes
+{
+   width:99%;
+   font-size: 16px;
+   margin: 24px auto 0px auto;
+   padding: 0px;
+   border: 0px none #000000;
+   border-spacing:0;
+   border-collapse:collapse;   
+   table-layout:fixed;
+   position:fixed;
+   _position:absolute;
+   top:0;
+   _left:25px;
+   height: 20px;
+   z-index:2;
+}
+
+table.epgTable
+{
+   width:98%;
+   font-size: 12px;
+   margin: 48px auto 120px auto; 
+   padding: 0px;
+   _position:absolute;
+   _left:25px;
+   border: 0px none #000000;
+   table-layout:fixed; 
+}
+
+th.epgTimes
+{
+   overflow: hidden;
+   padding: 6px;
+   white-space: nowrap;
+   font-weight: bold;
+   font-size: 16px;
+   text-align: left;
+   border-top: 2px none #CB70D8;
+   border-left: 2px none #CB70D8;	   
+   border-right: 2px none #74277F;
+   border-bottom: 2px none #74277F;
+
+}
+
+td.epgChannel
+{
+   overflow: hidden;
+   white-space: nowrap;
+   font-weight: bold;
+   font-size: 14px;
+   padding: 2px;
+   border-top: 2px none #CB70D8;
+   border-left: 2px none #CB70D8;	   
+   border-right: 2px none #74277F;
+   border-bottom: 2px none #74277F;
+
+}
+
+td.epgClear
+{
+   border: 0px none #000000;
+}
+
+td.epgSchedule
+{
+   background-color: #44aa44;
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #66cc66;
+   border-left: 2px solid #66cc66;
+   border-right: 2px solid #005000;
+   border-bottom: 2px solid #005000;
+}
+
+td.epgScheduleSelected
+{
+   background-color: #00ff00;
+   color: #FFFFFF;
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #228822;
+   border-bottom: 2px solid #228822;
+   overflow:hidden;
+}
+
+td.epgScheduleSkipped
+{
+   background-color: #CCCC00;
+   color: #666666; 
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #FFFF66;
+   border-left: 2px solid #FFFF66;
+   border-right: 2px solid #999900;
+   border-bottom: 2px solid #999900;
+}
+
+td.epgScheduleSkippedSelected
+{
+   background-color: #FFFF00;
+   color: #000000;   
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #999900;
+   border-bottom: 2px solid #999900;
+   overflow:hidden;
+}
+
+td.epgScheduleRunning
+{
+   background-color: #B22222;
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #FF4444;
+   border-left: 2px solid #FF4444;
+   border-right: 2px solid #660000;
+   border-bottom: 2px solid #660000;
+}
+
+td.epgScheduleRunningSelected
+{
+   background-color: #FF4444;
+   color: #FFFFFF;
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #BB0000;
+   border-bottom: 2px solid #BB0000;
+   overflow:hidden;
+}
+
+td.epgScheduleFinished
+{
+   background-color: #00CCCC;
+   color: #000000;   
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #66FFFF;
+   border-left: 2px solid #66FFFF;
+   border-right: 2px solid #009999;
+   border-bottom: 2px solid #009999;
+}
+
+td.epgScheduleFinishedSelected
+{
+   background-color: #00FFFF;
+   color: #000000;
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #009999;
+   border-bottom: 2px solid #009999;
+   overflow:hidden;
+}
+
+td.epgScheduleError
+{
+   background-color: #FF9900;
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #FFCC33;
+   border-left: 2px solid #FFCC33;
+   border-right: 2px solid #CC9900;
+   border-bottom: 2px solid #CC9900;
+}
+
+td.epgScheduleErrorSelected
+{
+   background-color: #FFCC00;
+   color: #FFFFFF;
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #CC9900;
+   border-bottom: 2px solid #CC9900;
+   overflow:hidden;
+}
+
+td.epgProgram
+{
+   background-color: #001A98;
+   padding: 2px;
+   overflow:hidden;
+   border-top: 2px solid #2E5Ad8;
+   border-left: 2px solid #2E5Ad8;
+   border-right: 2px solid #000033;
+   border-bottom: 2px solid #000033;
+}
+
+td.epgProgramSelected
+{
+   background-color: #4673F2;
+   color: #FFFFFF;
+   font-weight: bold;
+   padding: 2px;
+   border-top: 2px solid #DDDDFF;
+   border-left: 2px solid #DDDDFF;
+   border-right: 2px solid #001A98;
+   border-bottom: 2px solid #001A98;
+   overflow:hidden;
+}
+
+td.epg_item_title
+{
+   background-color: #000066;
+   padding: 2px;
+   text-align: left;
+   vertical-align: top;
+   font-weight: bold;
+   font-size: 16px;
+   border-top: 2px solid #2E5Ad8;
+   border-left: 2px solid #2E5Ad8;
+   border-right: 2px solid #000000;
+   border-bottom: 2px solid #000000;
+}
+
+td.epg_item_time
+{
+   background-color: #000066;
+   padding: 2px;
+   text-align: right;
+   vertical-align: top;
+   font-weight: bold;
+   font-size: 16px;
+   white-space: nowrap;
+   border-top: 2px solid #2E5Ad8;
+   border-left: 2px solid #2E5Ad8;
+   border-right: 2px solid #000000;
+   border-bottom: 2px solid #000000;
+   width: 300px;
+}
+
+td.epg_item_details
+{
+   background-color: #000066;
+   padding: 2px;
+   text-align: left;
+   vertical-align: top;
+   font-size: 16px;
+   border-top: 2px solid #2E5Ad8;
+   border-left: 2px solid #2E5Ad8;
+   border-right: 2px solid #000000;
+   border-bottom: 2px solid #000000;
+}

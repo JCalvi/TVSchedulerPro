@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this match list?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span>
+</a>
+<p>
+
+<table width="300" border="0" cellspacing="2" cellpadding="2">
+<tr><td colspan="3" style="border: 1px solid #FFFFFF;">
+<b>$title</b>
+</td></tr>
+
+$list
+
+<tr> 
+<td align='center' colspan='3'>
+<form action="/servlet/EpgAutoAddDataRes" method="POST" accept-charset="UTF-8">
+<input type="hidden" name="action" value="06">
+<input type="text" name="name" value="">
+<input type="submit" value="Add">
+</form>
+</td>
+</tr>
+
+<tr> 
+<td align='right' colspan='3'>
+<a href='/servlet/EpgAutoAddDataRes?action=18' class='noUnder' title="Export List"><img border=0 src='/images/export.png' align='absmiddle' width='24' height='24'>Export</a> 
+<a href='/servlet/EpgAutoAddDataRes?action=30' class='noUnder' title="Import List"><img border=0 src='/images/import.png' align='absmiddle' width='24' height='24'>Import</a> 
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

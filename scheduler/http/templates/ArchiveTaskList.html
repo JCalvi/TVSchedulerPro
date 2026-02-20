@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+
+<style>
+   
+tr.rowHi
+{
+   background: #789AFF;
+}
+
+tr.rowLow
+{
+   background: #6889F3;
+}
+
+td.borderTop
+{
+   color: #FFFFFF;
+	border-top: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+td.borderBottom
+{
+   color: #FFFFFF;
+	border-bottom: 1px #A8CAFF solid;
+	white-space: nowrap;
+}     
+   
+td.borderLeft
+{
+   color: #FFFFFF;
+	border-left: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+td.borderRight
+{
+   color: #FFFFFF;
+	border-right: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+</style>
+
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table class="areaHeading">
+<tr>
+<td width="50%" valign="bottom">
+<center>
+<span class='areaTitle'> Archived Tasks</span>
+</center>
+</td>
+<td width="50%" align="right">
+
+<table>
+
+<tr>
+<td>
+<a href='/servlet/TaskManagementDataRes' class='noUnder'>
+<img alt="Home" border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Task List</span></a>
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="1">
+
+<tr><td colspan='2' align='center'><span class='areaTitle'><a class='noUnder' href="/servlet/TaskManagementDataRes?action=08" onclick="return confirm('Are you sure you want to delete all the archive files?');">DELETE ALL ARCHIVE FILES</a></span></td></tr>
+
+
+$ArchiveList
+
+</table>
+
+<br>
+</body>
+</html>

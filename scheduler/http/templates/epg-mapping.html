@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span>
+</a><p>
+<strong>Mapping and Ordering the EPG Channels</strong>
+
+<input name="action" type="hidden" value="05">
+
+<table cellpadding="2">
+
+<tr>
+<td style='border: 1px solid #FFFFFF;'>TV Scheduler Pro Channel</td>
+<td style='border: 1px solid #FFFFFF;'>EPG Data Channel</td>
+<td>&nbsp;</td>
+<td></td>
+</tr>
+
+$channelmap
+
+</table>
+
+<br>
+
+<form method="GET" action="/servlet/EpgDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="05">
+<select name="wsChannel">
+$wsChannels
+</select>
+mapped to 
+<select name="epgChannel">
+$epgChannels
+</select>
+
+<input type="submit" value="Add">
+</form>
+
+
+$warning
+
+<br>
+<table border="0" width="80%">
+
+<tr>
+<td >
+<strong>Mapping and Ordering the EPG Channels:</strong>
+<br>
+The channels available in the EPG data have to be mapped to 
+channels that TV Scheduler Pro knows about, this is so TV Scheduler Pro knows what real channel to use 
+for each of the channels available in the EPG data. This channel mapping is then used when TV Scheduler Pro
+adds a schedule based on information from the EPG.
+<p>
+You can also set the order that the channels show up in the EPG and the order that the Auto-Add
+system searches through mapped channels by using the 
+<img src='/images/up01.png' align='absmiddle' width='7' height='7'><img src='/images/down01.png' align='absmiddle' width='7' height='7'> images 
+to move the mapped channel up and down the list. Channels at the top are displayed first and searched first.
+<p>
+Only EPG channels that have been mapped to TV Scheduler Pro channels will show up in the TV Scheduler Pro EPG 
+pages or be used in the Auto-Add system.</li>
+</ul>
+
+</td>
+</tr>
+
+</table>
+
+<br><br>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tvshow>
+  <title>TV Recordings</title>
+  <sorttitle>1</sorttitle>
+  <plot>Live TV Captured Recordings</plot>
+  <studio>TVSP</studio>
+  <premiered>2019-01-01</premiered>
+  <year>2019</year>
+  <id>99999</id>
+</tvshow>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0473645c-1292-43b6-b739-2694e546ca3a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{f5fed463-f352-4fe2-bef2-354aa19d3cc3}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6cb3f6df-0848-4f9f-b35d-24dc27ba2346}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\RegStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SharedMemory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\running.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\stopped.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing3.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing4.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing5.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\capturing6.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending3.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending4.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending5.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending6.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending7.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending8.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending9.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\pending10.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep3.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep4.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep5.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep6.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep7.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep8.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep9.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep10.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep11.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep12.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep13.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep14.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sleep15.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\Tray.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SharedMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

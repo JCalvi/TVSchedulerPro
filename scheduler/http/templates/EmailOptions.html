@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/settings.html' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span></a>
+<p>
+<table border="0" cellspacing="2" cellpadding="2" align="center">
+
+
+<tr>
+<td>
+<form method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="42">
+
+<table border="0" align="center" cellpadding="5">
+
+<tr>
+<td colspan="3"><strong>Send email for the following events</strong></td>
+</tr>
+
+<tr><td align='left'>Server Started</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.serverstarted' value='1' $sendServerStarted$>
+</td></tr>
+
+<tr><td align='left'>Capture Warnings</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.onwarning' value='1' $sendOnWarning$>
+</td></tr>
+
+<tr><td align='left'>Capture Finished</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.capfinished' value='1' $sendCapFinished$>
+</td></tr>
+
+<tr><td align='left'>Weekly Report</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.weeklyreport' value='1' $sendWeeklyReport$>
+</td></tr>
+
+<tr><td align='left'>EPG Data Loaded</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.epgloaded' value='1' $sendEpgLoaded$>
+</td></tr>
+
+<tr><td align='left'>Free Space Low</td>
+<td colspan="2">
+<input type='CHECKBOX' name='email.send.freespacelow' value='1' $sendFreeSpaceLow$>
+</td></tr>
+
+
+<tr><td></td>
+<td colspan="2">
+<br>
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="3">
+<strong>Email Server Options </strong> <img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' align='absmiddle' onClick="showHelp('email.server.options');" width='24' height='24'>
+</td>
+</tr>
+
+<tr><td align='left'>To Address</td><td>
+<input type='text' name='email.to' value='$emailTo$' size='50'>
+</td></tr>
+
+<tr><td align='left'>From Address</td><td>
+<input type='text' name='email.from' value='$emailFrom$' size='50'>
+</td></tr>
+
+<tr><td align='left'>Server Address</td><td>
+<input type='text' name='email.server.address' value='$emailServer$' size='50'>
+</td><td>
+</td></tr>
+
+<tr><td align='left'>Server Port</td><td>
+<input type='text' name='email.server.port' value='$emailPort$' size='50'>
+</td></tr>
+
+<tr><td align='left'>Use Authentication</td><td>
+<input type='CHECKBOX' name='email.auth.enabled' value='1' $emailAuthEnabled$>
+</td></tr>
+
+<tr><td align='left'>User Name</td><td>
+<input type='text' name='email.auth.user' value='$emailAuthUser$' size='50'>
+</td></tr>
+
+<tr><td align='left'>Password</td><td>
+<input type='text' name='email.auth.password' value='$emailAuthPassword$' size='50'>
+</td></tr>
+
+<tr><td align='left'>Security</td><td>
+<SELECT name="email.security">
+<OPTION value="0" $emailSecurityNONE$>None</OPTION>
+<OPTION value="10" $emailSecuritySTARTTLS10$>STARTTLS-TLSv1</OPTION>
+<OPTION value="11" $emailSecuritySTARTTLS11$>STARTTLS-TLSv1.1</OPTION>
+<OPTION value="12" $emailSecuritySTARTTLS12$>STARTTLS-TLSv1.2</OPTION>
+<OPTION value="13" $emailSecuritySTARTTLS13$>STARTTLS-TLSv1.3</OPTION>
+<OPTION value="22" $emailSecuritySSL22$>SSLv2Hello</OPTION>
+<OPTION value="23" $emailSecuritySSL23$>SSLv3</OPTION>
+</SELECT>
+</td></tr>
+
+<tr><td align='left'>Log Email Debug Info</td><td>
+<input type='CHECKBOX' name='email.debug.enabled' value='1' $emailDebugEnabled$>
+</td></tr>
+
+<tr><td></td>
+<td colspan="2">
+<br>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" align="center">
+<input value="Apply Settings" type="submit">
+</td>
+<tr>
+
+<tr><td></td>
+<td colspan="2">
+<br>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" align="center">
+You need to apply the above setting before you can send a test email.
+<br><strong><a href="/servlet/SystemDataRes?action=43" class="noUnder">Send Test Email</a></strong></td>
+</tr>
+
+
+</table>
+
+</form>
+
+<tr>
+
+
+</td>
+</tr>
+
+</table>
+</form>
+
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

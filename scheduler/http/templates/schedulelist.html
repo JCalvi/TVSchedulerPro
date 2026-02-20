@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script src="/javascript/refresh.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this schedule item?");
+}
+
+function warningBox(warnings, itemID)
+{
+    var warningText = "The Schedule had the following warnings:\n\n " + warnings + "\n";
+    warningText += "You can submit the log file from the schedule for analysis.\n";
+    warningText += "Click OK to submit or Cancel to close.";
+    
+	var answer = confirm(warningText);
+	
+	if(answer)
+	{
+		window.location = "/servlet/ScheduleDataRes?action=15&id=" + itemID;
+	}
+}
+
+</script>
+
+<style>
+   
+tr.rowHi
+{
+   background: #789AFF;
+}
+
+tr.rowLow
+{
+   background: #6889F3;
+}
+
+td.borderTop
+{
+   color: #FFFFFF;
+	border-top: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+td.borderBottom
+{
+   color: #FFFFFF;
+	border-bottom: 1px #A8CAFF solid;
+	white-space: nowrap;
+}     
+   
+td.borderLeft
+{
+   color: #FFFFFF;
+	border-left: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+td.borderRight
+{
+   color: #FFFFFF;
+	border-right: 1px #A8CAFF solid;
+	white-space: nowrap;
+}   
+   
+</style>
+
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table class="areaHeading">
+<tr>
+<td width="50%" valign="bottom">
+<center>
+<span class='areaTitle'> Current Schedules</span>
+</center>
+</td>
+<td width="50%" align="right">
+
+<table>
+
+<tr>
+<td>
+<a href='/' class='noUnder'>
+<img alt="Home" border=0 src='/images/home.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Home</span></a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href='?action=01' class='noUnder'>
+<img border=0 src='/images/addsch.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Add New</span></a>
+</td>
+</tr>
+
+<tr>
+<td>
+$OverlapIcon
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<table class='scheduletable' cellspacing="0" cellpadding="1">
+
+$NoSchedules
+
+$PastSchedules
+
+$PendingSchedules
+
+</table>
+
+<p>
+<table style="border: solid #FFFFFF 1px;" cellpadding="3">
+
+<form onSubmit="return confirm('Confirmation: Are you sure?');" name="delete" action="/servlet/ScheduleDataRes" method="POST">
+   <input type="hidden" name="action" value="13">
+   <tr><td align="center" nowrap>
+      <select name="deleteaction" size="1">
+        <option value='0' selected='selected'>Archive</option>
+        <option value='1'>Delete</option>
+      </select> 
+ schedules older than
+      <select name="older" size="1">
+         <option value="-1">All</option>
+         <option value="0">Now</option>
+         <option value="1">1 minute</option>
+         <option value="60">1 hour</option>
+         <option value="1440" selected="selected">1 Day</option>
+         <option value="7200">5 Days</option>
+         <option value="20160">14 Days</option>
+      </select>
+      with status of
+      <select name="status" size="1">
+         <option value="-1">All</option>
+         <option value="3" selected="selected">Finished</option>
+         <option value="5">Error</option>
+         <option value="1">Skipped</option>
+      </select>    
+      <input type="submit" value="Submit">
+   </td></tr>
+</form>   
+   
+<form name="delete" action="/servlet/ScheduleDataRes" method="POST">
+   <input type="hidden" name="action" value="14">
+   <tr><td align="center" nowrap>
+      Auto <select name="deleteaction" size="1">
+$deleteAction
+      </select>
+       schedules <input type="text" name="deleteafter" value="$deleteAfter" MAXLENGTH="3" SIZE="3"> hours after finishing <input type="submit" value="Update"> <img style="cursor: pointer;" src="/images/help.png" alt="help" onclick="showHelp('sch.autodel');" align="absmiddle" border="0" height="24" width="24">
+   </td></tr>
+   <tr><td class="itemdata" align="center" nowrap>
+   <a href='/servlet/ArchiveDataRes?action=showArchive' class="noUnder">View Archive</a>
+   </td></tr>
+</form> 
+   
+</table>
+
+<br>
+
+</body>
+</html>

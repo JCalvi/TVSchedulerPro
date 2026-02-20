@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this match list?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span>
+</a>
+<p>
+
+<table width="300" border="0" cellspacing="2" cellpadding="2">
+<tr><td style="border: 1px solid #FFFFFF;">
+<b>$title</b>
+</td></tr>
+
+<tr><td>
+<p>This is the list of Match List Items that will be used to build your EPG watch list. </p>
+<p align="center"><strong><a href="/servlet/EpgAutoAddDataRes?action=36" class='noUnder'>View Watch List</a></strong>
+<br><br>
+</td></tr>
+
+<tr><td align="center">
+$list
+</td></tr>
+
+<tr> 
+<td align='center' nowrap>
+<br>
+<form action="/servlet/EpgAutoAddDataRes" method="POST" accept-charset="UTF-8">
+<input type="hidden" name="action" value="34">
+<select name="watchlist">
+$addItems
+</select>
+<input type="submit" value="Add">
+</form>
+<strong><a href='/servlet/EpgAutoAddDataRes?action=05' class='noUnder'>Create New Match List Item</a></strong>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<style>
+td.separator
+{
+	border-top: 1px #FFFFFF solid;
+}
+</style>
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(filename)
+{
+   var lsRegExp = /\+/g;
+   var name = unescape(String(filename).replace(lsRegExp, " "));
+
+	if(confirm("Are you sure you want to delete the following file?\n" + name))
+	{
+	   document.location.href = "/servlet/FileManagementDataRes?action=01&file=" + filename;
+	}
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<table width='700px' border="0" cellspacing="0" cellpadding="2">
+
+<tr>
+<td collspan='2' width='95%'>&nbsp;</td>
+<td nowrap>
+<a href='/' class="noUnder"> <img border=0 src='/images/home.png' align='absmiddle' width='24' height='24'> <span class="areaTitle">Home</span></a><br>
+<a href='/settings.html' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> <span class="areaTitle">System Index</span></a>
+</td>
+</tr>
+
+<table width='700px' border="0" cellspacing="0" cellpadding="2">
+
+  $tableHeader$
+
+  $fileList$
+
+</table>
+
+</body>
+</html>

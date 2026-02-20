@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/settings.html' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>System Index</span></a> 
+<p>
+<table border="0" cellspacing="2" cellpadding="2" align="center">
+
+<tr><td align='center'>
+<a href="/servlet/ApplyTransformRes?xml=null&xsl=kb-root" class="noUnder">
+<span class="areaTitle link">Show Theme Interface</span>
+</a>
+<br><br>
+</td>
+</tr>
+
+<tr>
+<td align="center"><strong>Theme Settings</strong></td>
+</tr>
+<tr>
+<td>
+<form method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="20">
+
+<table border="0" align="center">
+<tr>
+<td>Default EPG Theme</td>
+<td>
+<select name="epg_theme">
+$epg_themeList
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Default Keyboard Theme</td>
+<td>
+<select name="theme">
+$themeList
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="right">
+<input value="Apply Settings" type="submit">
+</td>
+<tr>
+
+</table>
+
+</form>
+
+<br>
+Browser Agent to Theme Mapping<br>
+
+<form method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="36">
+<table>
+<tr><td style="border: 1px solid #FFFFFF;"><strong>Agent String</strong></td><td style="border: 1px solid #FFFFFF;"><strong>Theme</strong></td><td>&nbsp;</td></tr>
+
+
+$themeMappings
+
+
+<tr><td colspan="3"><br></td></tr>
+
+<tr>
+<td><input type="text" name="agent" value="$agentString" size="40"></td>
+<td colspan="2">
+<select name="theme">
+$themeList
+</select>
+<input value="add" type="submit">
+</td>
+</tr>
+
+</table>
+</form>
+
+</td>
+</tr>
+
+</table>
+
+<table width="800px">
+
+<tr>
+<td>
+<strong>Browser Agent to Theme Mapping</strong><br>
+To map a browser type to a particular theme you can set a browser agent string to theme mapping. This means that that browser will 
+always use the mapped theme, this is useful for browsers on phones and portable devices. 
+<br><br>
+You can specify the simple there or a theme you have created that works with your devices browser but the default there is still usable on your main PC or HTPC browser.
+<br><br>
+In the text box above you will see your current browsers Agent string, this string is how a browser identifies itself to a web server, as you can see it is long and has a lot of information in it. 
+You can delete most of it and just have a sub string of the data i.e. Firefox or MSIE 7.0 etc, the matching to the browser string is done as a sub string match so any instance of the partial string is considered a match.
+The match is case sensitive so be careful if typing in the string manually that you get the case correct.
+<br>
+<br>
+To add a mapping for a browser to easiest way to do it is connect to this page form the browser in question select the theme you want to use and then click the add button. This 
+will add a theme to agent map for the browser you are connecting with to the theme mapping. To test it go back the settings page and click the Show Keyboard Interface link.
+
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

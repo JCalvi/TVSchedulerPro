@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+
+<script>
+function addPath(url)
+{  
+   window.opener.location.href = url;
+   window.close();
+}
+</script>
+
+</head>
+<body>
+<center>
+
+<span class='areaTitle'>Available Capture Paths</span>
+<table width="95%" border="0">
+
+<tr><td>Current Path</td></tr>
+<tr><td nowrap style='border: 1px solid #FFFFFF;'>
+$currentPath
+</td></tr>
+<tr><td><span style="font-size:12px;">(Click the above path to add it)</span><br><br></td></tr>
+
+$availablePaths
+
+<tr><td align="center">
+<br>
+<form action="" method="">
+<input type="hidden" name="action" value="31">
+View Path : <input type="text" name="path" value=""><input type="submit" value="View">
+</form>
+</td></tr>
+
+</table>
+
+</body>
+</html>

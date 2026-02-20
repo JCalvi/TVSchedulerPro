@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>$title</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+
+<script>
+
+function applyPreSelect()
+{
+   if(document.normalise.preSelect.value == 0)
+   {
+      document.normalise.normMin.value = "";
+      document.normalise.normMax.value = "";
+      document.normalise.submit();
+   }
+   else if(document.normalise.preSelect.value == 1)
+   {
+      document.normalise.normMin.value = "40000";
+      document.normalise.normMax.value = "-40000";   
+      document.normalise.submit();
+   }
+}
+
+</script>
+
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='$backLink' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Back to Schedule Log Page</span>
+</a><p>
+
+<strong>$title</strong>
+<br>
+<br>
+
+<img src="/servlet/SignalStatisticsImageDataRes?id=$itemID&file=$Encoded_FileName&data=$dataType&normMin=$normMin&normMax=$normMax">
+
+<br>
+
+<form name="normalise" action="/servlet/SignalStatisticsImageDataRes" method="GET">
+<input type="hidden" name="action" value="01">
+<input type="hidden" name="id" value="$itemID">
+<input type="hidden" name="file" value="$fileName">
+<input type="hidden" name="data" value="$dataType">
+<table>
+<tr><td nowrap colspan="2"><strong>Normalisation Values</strong></td></tr>
+<tr><td nowrap>
+Pre Defined Normalisation Values
+</td>
+<td>
+<select name="preSelect" onChange="applyPreSelect()">
+<option value=""></option>
+<option value="0">none</option>
+<option value="1">Digital Now TwinTiny Signal Strength</option>
+</select>
+</td></tr>
+<tr><td nowrap>Custom Min Value</td><td><input type="text" name="normMin" value="$normMin"></td></tr>
+<tr><td nowrap>Custom Max Value</td><td><input type="text" name="normMax" value="$normMax"></td></tr>
+<tr><td></tr><td><input type="submit"></td></tr>
+</table>
+</form>
+
+</body>
+</html>

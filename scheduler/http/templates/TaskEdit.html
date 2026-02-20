@@ -1,0 +1,178 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this Task?");
+}
+var usingCAPTCHA = $usingCAPTCHA$;
+function checkID()
+{
+   if(usingCAPTCHA == true && document.settings.sessionID.value.length != 6)
+   {
+      alert("Please enter the security ID at the bottom of the form!");
+      return false;
+   }
+   else
+    return true;
+}
+function setSecurityImage()
+{
+   if(usingCAPTCHA == true)
+   {
+      var captchaSpan = document.getElementById("captcha");
+      if(captchaSpan)
+      {
+         captchaSpan.style.visibility = "visible";
+      }
+
+      var thisDate = new Date();
+      var securityImageURL = "/servlet/ImageDataRes?sessionID=1&time=" + thisDate.toGMTString();
+      var image = document.getElementById("SecurityImage");
+      if(image)
+      {
+         image.src = securityImageURL;
+         setTimeout("setSecurityImage();", 180000);
+      }
+   }
+}
+</script>
+</head>
+<body onLoad="setSecurityImage();" onpageshow="if (event.persisted) setSecurityImage();">
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/servlet/SystemDataRes?action=08' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Task List</span></a>
+
+
+<form name='settings' onSubmit='return checkID();' method="POST" action="/servlet/SystemDataRes" accept-charset="UTF-8">
+<input type="hidden" name="action" value="23">
+<input type="hidden" name="task_name" value="$taskName">
+
+  <table width="80%" border="0" cellspacing="2" cellpadding="2">
+    <tr>
+      <td class="itemheading" colspan="2"><strong>Edit Task : $taskName</strong></td>
+    </tr>
+
+    <tr>
+      <td nowrap valign="center">
+
+      <table border='0' width="100%">
+      <tr><td nowrap align="right">Command To Run</td><td width="100%"><input style="width:100%" maxlength="200" type="text" name="command" value="$taskCommand"></td>
+
+      <tr><td nowrap align="right">Delay</td><td width="100%"><input style="width:30px" type="text" name="delay" max-char="3" value="$taskDelayFor"> seconds before running task</td>
+
+      <tr><td nowrap align="right">When not capturing</td><td width="100%"><input style="" type="checkbox" name="whenNotCapturing" value="true" $whenNotCapturing> <font size="-1">(task will wait for current schedules to finish before running)</font></td>
+
+      <tr><td nowrap align="right">Maximum</td><td width="100%"><input style="width:30px" type="text" name="concurrentTasks" max-char="3" value="$concurrentTasks"> concurrent tasks</td>
+
+      <tr><td nowrap align="right">Dont run within</td><td width="100%"><input style="width:30px" type="text" name="timeToNextSchedule" max-char="3" value="$timeToNextSchedule"> minutes of a scheduled action</td>
+
+      <tr><td nowrap align="right">Auto-Remove</td><td width="100%"><input style="" type="checkbox" name="autoRemove" value="true" $autoRemove> <font size="-1">(Remove from active task list when finished)</font></td>
+
+      <tr><td></td><td><br><br><input value="Update Task" type="submit"></td></tr>
+
+      <tr><td></td><td><span id="captcha" style="visibility:hidden;">Security ID <input type="text" size="6" maxlength="6" name="sessionID" value=""> <img id='SecurityImage' align='absmiddle' src='/images/secure-blank.png'> <img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' align='absmiddle' onClick="showHelp('security.captcha');" width='24' height='24'></span></td></tr>
+
+      </table>
+
+      </td>
+    </tr>
+
+  </table>
+  </form>
+
+<p>&nbsp;</p>
+<table width="80%" border="0" cellspacing="2" cellpadding="2">
+
+  <tr>
+  <td>
+        <strong>Please Note:</strong><br>
+        For Pre-Capture Tasks, Capture Start Failed Tasks and No Data Flowing Task you need to set them up as follows or you may see timeout problems when running your tasks.<br>
+        <br>
+        <div style="padding-left: 25px">
+        Delay = 0<br>
+        When not capturing = False or Unchecked<br>
+        Maximum concurrent tasks >= 20<br>
+        Don't run within X minutes of a scheduled action = 0<br>
+        </div>
+        <br>
+  </td>
+  </tr>
+
+
+  <tr>
+    <td>
+      <strong>Command To Run</strong><br>
+        The task command line can have dynamic values that will be replaced when the task is run.</p>
+        <ul>
+        <li>The first instance of &quot;$deviceID&quot; will be substituted with the ID of the capture device that was
+        used for post capture tasks or that is about to be used for Pre-Capture tasks.</li>
+
+        <li>The first instance of &quot;$deviceString&quot; will be substituted with the hardware ID String of the capture device that was
+        used for post capture tasks or that is about to be used for Pre-Capture tasks.</li>
+
+        <li>The first instance of &quot;$filename&quot; will be substituted with the full path and file name
+        of the capture for post capture tasks.</li>
+
+        <li>The first instance of &quot;$capType&quot; will be substituted with the capture type of this capture.</li>
+        </ul>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+       <strong>Delay</strong><br>
+        This is the amount of time that a task will delay before executing the command. This is useful
+        for post capture tasks to allow the next schedule, if there is one,  to start capturing before
+        starting a heavy CPU or Disk IO command.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>When not capturing</strong><br>
+        This makes the task wait for any current schedules to finish before the command is executed.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>Maximum X concurrent tasks</strong><br>
+        The task will not run while there are more then X number of other tasks running, if you set this
+        to 1 it means that only one of these tasks will be run at a time. This is useful for high disk IO
+        commands that you only want to run one at a time. Task wait for the other tasks
+        to finish before executing.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>Don't run within X minutes of a scheduled action</strong><br>
+        Some tasks may interrupt with starting captures or running captures, this option allows
+        you to set how far out the next capture is before the task has to wait for that task to start
+        and finish.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <strong>Auto-Remove</strong><br>
+        The task will automatically be removed form the active task list when it finishes.
+    </td>
+  </tr>
+
+
+
+</table>
+</body>
+</html>

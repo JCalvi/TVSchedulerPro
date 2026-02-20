@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<form onSubmit="return isChannelSelected();" name="add" method="POST" action="/servlet/ScheduleDataRes" accept-charset="UTF-8">
+  <table width="450" border="0" cellpadding="5" cellspacing="2">
+   <tr><td align="right" colspan="4">
+<a href='/servlet/ScheduleDataRes' class='noUnder'>
+<img alt="Back" border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> <strong>Schedule List</strong>
+</a>      
+      </td></tr>
+    <tr align="center">
+      <td colspan="2"><table border="0" cellpadding="5" cellspacing="5">
+          <tr bgcolor="#A3BCFF"> 
+            <td colspan="2" align="left"><strong>Time / Duration</strong></td>
+            <td align="left" nowrap bgcolor="#A3BCFF"><strong>Channel</strong></td>
+            <td align="left" nowrap bgcolor="#A3BCFF"><strong>Item Type</strong></td>
+            <td align="left" nowrap>
+            <strong>Capture Type</strong>
+            <img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' align='absmiddle' onClick="showHelp('CaptureTypes');" width='24' height='24'>
+            
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" nowrap>Time</td>
+            <td nowrap> <input name="hour" type="text" id="hour" value="$hour" size="2" maxlength="2">
+              : 
+              <input name="min" type="text" id="min" value="$min" size="2" maxlength="2"> 
+            </td>
+            <td rowspan="4" align="left" valign="top" nowrap>$channels</td>
+            <td rowspan="4" align="left" valign="top" nowrap>$item_type</td>
+            <td rowspan="4" align="left" valign="top" nowrap>$item_captype</td>
+          </tr>
+          <tr> 
+            <td align="right" nowrap>Duration</td>
+            <td nowrap> <input name="duration" type="text" id="duration" value="$duration" size="4" maxlength="4">
+              minutes </td>
+          </tr>
+          <tr> 
+            <td align="right" nowrap>Name</td>
+            <td nowrap> <input name="name" type="text" id="name" value="$name" size="20"> 
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" nowrap>&nbsp;</td>
+            <td nowrap>&nbsp; </td>
+          </tr>
+          <tr> 
+            <td colspan="2" nowrap bgcolor="#A3BCFF"><strong>Name Pattern</strong></td>
+            <td colspan="2" align="left" valign="top" nowrap bgcolor="#A3BCFF"><strong>Deletable</strong></td>
+            <td align="left" valign="top" nowrap bgcolor="#A3BCFF"><strong>Post Capture Task</strong></td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" nowrap>$pattern</td>
+            <td colspan="2" align="left" valign="top" nowrap>
+            <label><input name="autoDel" type="checkbox" id="autoDel" value="true" $adtrue> Auto Deletable<br></label>
+              Keep For 
+              <input name="keepfor" type="text" id="keepfor" value="$keepfor" size="3" maxlength="3">
+              days </td>
+            <td align="left" valign="top" nowrap>$tasks</td>
+          </tr>
+          <tr> 
+            <td colspan="5" nowrap bgcolor="#A3BCFF"><strong>Capture Path</strong></td>
+          </tr>
+          <tr> 
+            <td colspan="5" valign="top" nowrap>$CapturePaths</td>
+          </tr>          
+        </table>
+        <input type="submit" name="Submit2" value="Submit">
+        <input name="action" type="hidden" id="action" value="03">
+         </td>
+    </tr>
+  </table>
+  <p>$fields </p>
+
+</form>
+
+</body>
+</html>

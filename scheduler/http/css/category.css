@@ -1,0 +1,26 @@
+
+<!--
+/*
+
+In this file you can specify the background colours of the EPG programs based on
+category, just create an entry for each category like the following.
+
+td.Adventure             {background-color: #FF0000;}
+
+don't change the td.epgProgram* entries unless you want to change the default
+colours of the program items.
+
+*/
+-->
+
+td.epgProgramDefault     {background-color: #3068FF;}
+td.epgProgramNoCategory  {background-color: #3068FF;}
+td.epgProgramEmpty       {background-color: #3068FF;}
+
+
+
+
+
+
+
+

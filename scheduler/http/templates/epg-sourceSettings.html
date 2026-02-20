@@ -1,0 +1,273 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script>
+var usingCAPTCHA = $usingCAPTCHA$;
+function checkID()
+{
+   if(usingCAPTCHA == true && document.settings.sessionID.value.length != 6)
+   {
+      alert("Please enter the security ID at the bottom of the form!");
+      return false;
+   }
+   else
+    return true;
+}
+function setSecurityImage()
+{
+   if(usingCAPTCHA == true)
+   {
+      var captchaSpan = document.getElementById("captcha");
+      if(captchaSpan)
+      {
+         captchaSpan.style.visibility = "visible";
+      }
+
+      var thisDate = new Date();
+      var securityImageURL = "/servlet/ImageDataRes?sessionID=1&time=" + thisDate.toGMTString();
+      var image = document.getElementById("SecurityImage");
+      if(image)
+      {
+         image.src = securityImageURL;
+         setTimeout("setSecurityImage();", 180000);
+      }
+   }
+}
+</script>
+</head>
+<body onLoad="setSecurityImage();" onpageshow="if (event.persisted) setSecurityImage();">
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/settings.html' class="noUnder">
+<img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span>
+</a>
+<p>
+<form onSubmit='return checkID();' action='/servlet/EpgDataRes' method='POST' accept-charset="UTF-8" name="settings">
+  <table border="0" cellspacing="2" cellpadding="2">
+
+    <tr>
+      <td colspan="3">
+         <strong>Guide Data Source</strong>
+      </td>
+    </tr>
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <input name="sourceType" type="radio" value="0" $FileSelected><strong> File Source</strong>
+
+	    <table>
+	    <tr>
+	      <td align="right" width="150px">Directory </td>
+	      <td> <input name='fileDIR' type='text' id="fileDIR" value="$fileDIR" size="80"></td>
+	    </tr>
+	    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <input type="radio" name="sourceType" value="1" $HttpSelected> Http Web Source
+
+	    <table>
+	    <tr>
+	      <td align="right" width="150px">Address </td>
+	      <td> <input name='httpURL' type='text' value="$httpURL" size="80"></td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="150px">Username </td>
+	      <td> <input name='httpUser' type='text' value="$httpUser" size="15"></td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="150px">Password </td>
+	      <td> <input name='httpPassword' type='text' value="$httpPassword" size="15"></td>
+	    </tr>
+	    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+      <td colspan="3" align="left">&nbsp;</td>
+    </tr>
+
+
+    <tr>
+      <td colspan="3" align="left"><strong>General Options</strong></td>
+    </tr>
+
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <strong>Schedule Data Load</strong>
+
+	    <table width="100%" border="0">
+	    <tr>
+	      <td align="right" width="150px" nowrap="1"></td>
+	      <td width="100%"><label><input name="scheduleImportEnabled" type="checkbox" value="1" $scheduleImportEnabled> Enable</label></td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="150px" nowrap="1">Time </td>
+	      <td> <input name="scheduleHour" type="text" value="$scheduleHour" size="2" maxlength="2"> : <input name="scheduleMin" type="text" value="$scheduleMin" size="2" maxlength="2"></td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="150px" nowrap="1">Pre Load Task </td>
+	      <td> $preLoadEpgTaskSelect</td>
+	    </tr>
+	    </table>
+
+    </td>
+    </tr>
+
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <strong>Pre/Post Load Actions</strong>
+
+	    <table width="100%" border="0">
+		<tr>
+	      <td align="right" width="150px"></td>
+	      <td><label><input name="clipStartEnabled" type="checkbox" value="1" $clipStartEnabled> Remove any epg items before current time</label></td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="150px"></td>
+	      <td><label><input name="postActionNameEnabled" type="checkbox" value="1" $postActionNameEnabled> Merge double episodes</label></td>
+	    </tr>
+	    </table>
+
+    </td>
+    </tr>
+
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <strong>HTTP Proxy Settings</strong>
+
+	    <table width="100%" border="0">
+		    <tr>
+		      <td align="right" width="150px">Proxy Server </td>
+		      <td> <input name='httpProxyServer' type='text' id="httpProxyServer2" value="$httpProxyServer" size="60"></td>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right" width="150px">Proxy Port </td>
+		      <td> <input name='httpProxyPort' type='text' id="httpProxyPort2" value="$httpProxyPort" size="5" maxlength="6"></td>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right" width="150px">Username </td>
+		      <td> <input name='proxyUser' type='text' value="$proxyUser" size="15"></td>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td align="right" width="150px">Password </td>
+		      <td> <input name='proxyPassword' type='text' value="$proxyPassword" size="15"></td>
+		      </td>
+		    </tr>
+
+	    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td style="border: 1px solid #FFFFFF;">
+    <strong>EPG View Options</strong>
+
+	    <table width="100%" border="0">
+	    <tr>
+	      <td align="right" width="150px"></td>
+	      <td><label><input name="warnOverlapEnabled" type="checkbox" value="1" $warnOverlapEnabled> Warn when EPG items overlap</label></td>
+	    </tr>
+
+	    <tr>
+	    <td align="right" >Search URL</td>
+	    <td><input name='searchURL' type='text' id="searchURL" value="$searchURL" size="60"></td>
+	    </tr>
+
+	    </table>
+
+    </td>
+    </tr>
+
+
+    </table>
+
+
+    </td>
+    </tr>
+
+    <tr>
+      <td colspan="3" align="center">
+      <br><br>
+      <input type="submit" name="Submit" value="Submit">
+      <input name="action" type="hidden" id="action" value="17"></td>
+    </tr>
+
+    <tr>
+    <td colspan="3" ><br><br><span id="captcha" style="visibility:hidden;">Security ID <input type="text" size="6" maxlength="6" name="sessionID" value=""> <img id='SecurityImage' align='absmiddle' src='/images/secure-blank.png'> <img style='cursor:hand;cursor:pointer;' border=0 src='/images/help.png' alt='help' align='absmiddle' onClick="showHelp('security.captcha');" width='24' height='24'></span></td>
+    </tr>
+
+  </table>
+</form>
+<br><br>
+
+<table width="80%">
+<tr>
+    <td valign="top">
+
+      <p><strong>File Source</strong><br>
+        The file source just loads XMLTV data from any file in the specified
+        directory that has an extension of .xml.<br>
+        Note: a folder without drive and path will be relative from the Windows Programdata folder<br>
+        eg. xmltv = C:\Programdata\xmltv, use a full path to point somewhere else.<br>
+        eg. D:\Somefolder\where\i\like\to\keep\my\xmltv</p>
+
+      <p><strong>HTTP Web Source</strong><br>
+        This option downloads data from the specified URL.<p>
+
+      <p><strong>Proxy Settings</strong><br>
+        If you need to use a proxy to connect to the Web enter the proxy in the
+        HTTP Proxy Settings option.</p>
+
+      <p><strong>Schedule Data Load</strong><br>
+        You can schedule to download and import data every day at
+        a set time, TV Scheduler Pro will wake the system up from suspend or hibernate if it needs
+        to to do this reload action.<br><br>
+        You can also have a pre load task take place before the data load action, this allows a task to do an
+        EPG data load using an external tool and save the data to disk before the EPG data is then loaded into TV Scheduler Pro.
+        </p>
+
+      <p><strong>Warn when EPG items overlap</strong><br>
+        Some EPG sources can have overlapping EPG items, this is never a good thing and is this occurs you can be warned when you view the EPG page.</p>
+
+      <p><strong>Remove any epg items before current time</strong><br>
+        This option removes any programmes from the epg that start before the time the xmltv is loaded. Use this to clip xmltv files that have old data in them.</p>
+
+      <p><strong>Merge double episodes</strong><br>
+        This option merges concurrent EPG programs that have the same name so when they are added using the Auto-Add or EPG they are added as a single schedule and thus a single capture file.</p>
+
+      <p><strong>Search URL</strong><br>
+        This is the URL that will be used for external searches from the program details page, it will launch a new window to do the search. In the URL the following will be replaced with details form the program:<br>
+        $TITLE = program title<br>
+        $SUB = program sub title</br>
+        $CAT = program category
+
+
+  </tr>
+</table>
+
+
+<br>
+<br>
+</body>
+</html>

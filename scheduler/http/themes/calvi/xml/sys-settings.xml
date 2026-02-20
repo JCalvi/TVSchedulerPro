@@ -1,0 +1,23 @@
+<buttons>
+
+<button name="Main Menu">
+<url>/servlet/ApplyTransformRes?xml=root&amp;xsl=kb-buttons</url>
+<confirm>false</confirm>
+</button>
+
+<button name="System Info">
+<url>/servlet/KBSysInfoRes</url>
+<confirm>false</confirm>
+</button>
+
+<button name="Reload XMLTV">
+<url>/servlet/KBEpgDataRes?action=03</url>
+<confirm>true</confirm>
+</button>
+
+<button name="Rescan XMLTV">
+<url>/servlet/KBEpgDataRes?action=04</url>
+<confirm>true</confirm>
+</button>
+
+</buttons>

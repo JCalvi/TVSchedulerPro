@@ -1,0 +1,13 @@
+TVSchedulerPro.jar -> jakarta.mail
+TVSchedulerPro.jar -> java.base
+TVSchedulerPro.jar -> java.desktop
+TVSchedulerPro.jar -> java.xml
+jakarta.activation -> java.base
+jakarta.activation -> java.logging
+jakarta.mail -> jakarta.activation
+jakarta.mail -> java.base
+jakarta.mail -> java.desktop
+jakarta.mail -> java.logging
+jakarta.mail -> java.security.sasl
+jakarta.mail -> java.xml
+jakarta.mail -> org.graalvm.nativeimage

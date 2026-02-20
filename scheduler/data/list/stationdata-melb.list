@@ -1,0 +1,42 @@
+# TV Scheduler Pro Station Data List
+# Short Version File for simple fixed install (Melbourne Default Example)
+# J.Calvi 2014
+#
+country.0=Australia
+#
+# Region List
+#
+# region.<country id>.<region id>=<name of region>
+#
+region.0.0=Melbourne
+#
+# Station List
+#
+# station.<country id>.<region id>.<station id>.name=<name of station>
+# station.<country id>.<region id>.<station id>.freq=<frequency of station>
+# station.<country id>.<region id>.<station id>.band=<bandwidth of station>
+#
+#Melbourne
+station.0.0.0.name=Seven
+station.0.0.0.freq=177500
+station.0.0.0.band=7
+
+station.0.0.1.name=Nine
+station.0.0.1.freq=191625
+station.0.0.1.band=7
+
+station.0.0.2.name=Ten
+station.0.0.2.freq=219500
+station.0.0.2.band=7
+
+station.0.0.3.name=ABC
+station.0.0.3.freq=226500
+station.0.0.3.band=7
+
+station.0.0.4.name=SBS
+station.0.0.4.freq=184500
+station.0.0.4.band=7
+
+station.0.0.5.name=C31
+station.0.0.5.freq=557625
+station.0.0.5.band=7

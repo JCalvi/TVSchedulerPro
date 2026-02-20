@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+</head>
+<body onLoad="document.qsearch.kwMatch.focus();">
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+<br>
+<a href='/' class="noUnder">
+<img border=0 src='/images/home.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Home<Span>
+</a><p>
+<span class='areaTitle'>Quick Search the EPG</span>
+  <form action='/servlet/EpgDataRes' method='GET' name="qsearch" accept-charset="UTF-8">
+  <input type="hidden" name="action" value="22">
+  <input type="hidden" name="search" value="yes">
+  <table border="0" cellspacing="2" cellpadding="2">
+    <tr>
+      <td align="right"><strong>Keyword</strong></td>
+
+      <td align="left"><input style="width: 100%" name='kwMatch' type='text' id="kwMatch" value="$kwMatch"></td>
+   </tr>
+   <tr>
+      <td align="right"><strong>Location</strong></td>
+      <td align="left">
+        <select name='typeMatch' type='test' id="typeMatch">
+        $typeList
+        </select>
+      </td>
+   </tr>
+   <tr>
+      <td align="right"><strong>Channel</strong></td>
+      <td align="left">
+        <select name='chanMatch' id="chanMatch">
+        $chanList
+        </select>
+      </td>
+   </tr>
+   <tr>
+      <td align="right"><strong>Category</strong></td>
+      <td align="left">
+        <select name='catMatch' id="catMatch">
+        $catList
+        </select>
+      </td>
+   </tr>
+   <tr>
+      <td align="right"><strong>Ignored</strong></td>
+      <td align="left">
+        <select name='ignored' id="ignored">
+        $ignoredList
+        </select>
+      </td>
+   </tr>
+   <tr>
+      <td align="right"><strong>Time Span</strong></td>
+      <td align="left">
+        <input type="text" value="$startHH" name="startHH" size="1" Maxlength="2" width="2" style="WIDTH: 22px">:<input type="text" value="$startMM" name="startMM" size="1" Maxlength="2" width="2" style="WIDTH: 22px"> to <input type="text" value="$endHH" name="endHH" size="2" Maxlength="2" width="2" style="WIDTH: 22px">:<input type="text" value="$endMM" name="endMM" size="2" Maxlength="2" width="2" style="WIDTH: 22px">
+      </td>
+   </tr>
+
+   <tr>
+   <td colspan="2" align="center">
+    <input type='submit' value='Search'>
+   </td>
+   </tr>
+  </table>
+  </form>
+<span align="center"><font size=2>Note: Keyword is not case sensitive. Leave Keyword Blank for Category Only Search.</font></span>
+
+<BR><BR>
+
+$result
+
+<br><br>
+</body>
+</html>

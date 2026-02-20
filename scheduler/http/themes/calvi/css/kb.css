@@ -1,0 +1,556 @@
+body
+{
+   opacity: 0.8;
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: transparent;
+   color: #DDDDFF;
+   text-decoration: none;
+   margin:10px;
+   
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Table Styles
+///////////////////////////////////////////////////////////
+*/
+
+table.KBButtonTable
+{
+   width:  100%;
+   height: 99%;
+   margin-left:auto; 
+   margin-right:auto;
+   border: 0; 
+   border-spacing:0;
+   padding: 0;
+
+}
+
+table.KBButtonListTable
+{
+
+   margin-left:auto; 
+   margin-right:auto;
+   border-spacing: 2px;
+}
+
+
+table.KBListTable
+{
+   width: 100%;
+   margin-left:auto; 
+   margin-right:auto;
+   border: 0;
+   border-spacing: 2px;
+   padding: 0; 
+}
+
+table.calendarTable
+{
+   margin-left:auto; 
+   margin-right:auto;
+   border: 0;
+   border-spacing: 5px;
+   padding: 0; 
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Button Styles
+///////////////////////////////////////////////////////////
+*/
+
+td.questionText
+{
+   font-weight: bold;
+   font-size: 40px;
+   text-align: center;
+   padding: 4px;
+   white-space: nowrap;
+}
+
+td.Button
+{
+
+   background-color: #001A98;
+   font-size: 40px;
+   text-align: center;
+   padding: 10px;
+   margin: 10px;
+   border-top: 4px solid #2E5AD8;
+   border-left: 4px solid #2E5AD8;
+   border-right: 4px solid #000066;
+   border-bottom: 4px solid #000066;  
+}
+
+td.ActiveButton
+{
+   background-color: #4673F2;
+   font-size: 40px;
+   color: #FFFFFF;
+   text-align: center;
+   padding: 10px;
+   margin: 10px;
+   border-top: 4px solid #DDDDFF;
+   border-left: 4px solid #DDDDFF;
+   border-right: 4px solid #001A98;
+   border-bottom: 4px solid #001A98;
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Form Row Selection Styles
+///////////////////////////////////////////////////////////
+*/
+
+div.PageTitle
+{
+   font-size: 40px;
+   width: 80%;
+   margin-left:auto; 
+   margin-right:auto;   
+   text-align: center;
+   
+}
+
+td.ActiveRow
+{
+   background-color: #4673F2;
+   color: #FFFFFF;
+   padding-left: 8px;
+   padding-right: 8px;
+   padding-bottom: 2px;
+   padding-top: 2px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 4px solid #DDDDFF;
+   border-left: 4px solid #DDDDFF;
+   border-right: 4px solid #001A98;
+   border-bottom: 4px solid #001A98;
+}
+
+td.Row
+{
+   background-color: #001A98;
+   padding-left: 8px;
+   padding-right: 8px;
+   padding-bottom: 2px;
+   padding-top: 2px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   
+   border-top: 4px solid #8E8EE8;
+   border-right: 4px solid #010162;
+   border-bottom: 4px solid #000053;
+   border-left: 4px solid #8F8FD5;	
+}
+
+td.itemdata
+{
+   background-color: #001A98;
+   
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 2px;
+   padding-top: 2px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   
+   border-top: 2px solid #8E8EE8;
+   border-right: 2px solid #010162;
+   border-bottom: 2px solid #000053;
+   border-left: 2px solid #8F8FD5;	
+}
+
+td.itemdataNoWrap
+{
+   background-color: #001A98;
+   
+   white-space: nowrap;
+   padding-left: 8px;
+   padding-right: 8px;
+   padding-bottom: 2px;
+   padding-top: 2px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   
+   border-top: 2px solid #8E8EE8;
+   border-right: 2px solid #010162;
+   border-bottom: 2px solid #000053;
+   border-left: 2px solid #8F8FD5;	
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Form Styles
+///////////////////////////////////////////////////////////
+*/
+
+td.FormInputSelected
+{
+   background-color: #4673F2;
+   font-weight: bold;
+   font-size: 36px;
+   color: #FFFFFF;
+   padding: 5px;
+
+   border-top: 4px solid #DDDDFF;
+   border-left: 4px solid #DDDDFF;
+   border-right: 4px solid #001A98;
+   border-bottom: 4px solid #001A98;
+}
+
+td.FormInput
+{
+   background-color: #001A98;
+   font-weight: bold;
+   font-size: 36px;
+   padding: 5px;
+   border-top: 4px solid #2E5Ad8;
+   border-left: 4px solid #2E5Ad8;
+   border-right: 4px solid #191970;
+   border-bottom: 4px solid #191970;
+}
+
+td.TextR
+{
+   font-weight: bold;
+   font-size: 36px;
+   text-align: right;
+   padding: 10px;
+}
+
+td.TextC
+{
+   font-weight: bold;
+   font-size: 36px;
+   text-align: center;
+   padding: 0px;
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Calendar Styles
+///////////////////////////////////////////////////////////
+*/
+
+td.calendarTitle
+{
+   font-size: 80px;
+   font-weight: bold;
+   text-align: center;
+   padding: 2px;
+   text-decoration: none;
+}
+
+td.calendarweek
+{
+   font-size: 24px;
+   padding: 2px;
+   width: 80px;
+   font-weight: bold
+}
+
+td.calendarday
+{
+
+   background-color: #001A98;
+   font-weight: bold;
+   font-size: 26px;
+   padding: 2px;
+   border-top: 4px solid #2E5Ad8;
+   border-left: 4px solid #2E5Ad8;
+   border-right: 4px solid #191970;
+   border-bottom: 4px solid #191970;
+   height: 80px;
+   width: 80px;
+   vertical-align: top;
+}
+
+td.calendarSelected
+{
+
+   background-color: #4673F2;
+   font-weight: bold;
+   font-size: 40px;
+   color: #FFFFFF;
+   padding: 2px;
+   border-top: 4px solid #DDDDFF;
+   border-left: 4px solid #DDDDFF;
+   border-right: 4px solid #001A98;
+   border-bottom: 4px solid #001A98;
+   height: 60px;
+   width: 60px;
+   vertical-align: top;
+}
+
+td.calendarPrev
+{
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px;
+   text-align: left;
+}
+
+td.calendarNext
+{
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px;
+   text-align: right;
+}
+
+
+/*
+///////////////////////////////////////////////////////////
+// Schedule Styles
+///////////////////////////////////////////////////////////
+*/
+
+td.epgSchedule
+{
+   background-color: #44aa44;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #66cc66;
+   border-left: 3px solid #66cc66;
+   border-right: 3px solid #005000;
+   border-bottom: 3px solid #005000;
+}
+
+td.epgScheduleSelected
+{
+   background-color: #00ff00;
+   color: #FFFFFF;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #DDDDFF;
+   border-left: 3px solid #DDDDFF;
+   border-right: 3px solid #228822;
+   border-bottom: 3px solid #228822;
+
+}
+
+td.epgScheduleSkipped
+{
+   background-color: #CCCC00;
+   color: #666666; 
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #FFFF66;
+   border-left: 3px solid #FFFF66;
+   border-right: 3px solid #999900;
+   border-bottom: 3px solid #999900;
+}
+
+td.epgScheduleSkippedSelected
+{
+   background-color: #FFFF00;
+   color: #000000;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #DDDDFF;
+   border-left: 3px solid #DDDDFF;
+   border-right: 3px solid #999900;
+   border-bottom: 3px solid #999900;
+
+}
+
+td.epgScheduleRunning
+{
+   background-color: #B22222;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #FF4444;
+   border-left: 3px solid #FF4444;
+   border-right: 3px solid #660000;
+   border-bottom: 3px solid #660000;
+}
+
+td.epgScheduleRunningSelected
+{
+   background-color: #FF4444;
+   color: #FFFFFF;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #DDDDFF;
+   border-left: 3px solid #DDDDFF;
+   border-right: 3px solid #BB0000;
+   border-bottom: 3px solid #BB0000;
+
+}
+
+td.epgScheduleFinished
+{
+   background-color: #00CCCC;
+   color: #000000;   
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #66FFFF;
+   border-left: 3px solid #66FFFF;
+   border-right: 3px solid #009999;
+   border-bottom: 3px solid #009999;
+}
+
+td.epgScheduleFinishedSelected
+{
+   background-color: #00FFFF;
+   color: #000000;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #DDDDFF;
+   border-left: 3px solid #DDDDFF;
+   border-right: 3px solid #009999;
+   border-bottom: 3px solid #009999;
+
+}
+
+td.epgScheduleError
+{
+   background-color: #FF9900;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   color: 000000;   
+   font-size: 24px;
+   border-top: 3px solid #FFCC33;
+   border-left: 3px solid #FFCC33;
+   border-right: 3px solid #CC9900;
+   border-bottom: 3px solid #CC9900;
+}
+
+td.epgScheduleErrorSelected
+{
+   background-color: #FFCC00;
+   color: #FFFFFF;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 1px;
+   padding-top: 1px;  
+   text-align: left;
+   font-weight: bold;
+   font-size: 24px;
+   border-top: 3px solid #DDDDFF;
+   border-left: 3px solid #DDDDFF;
+   border-right: 3px solid #CC9900;
+   border-bottom: 3px solid #CC9900;
+
+}
+
+/*
+///////////////////////////////////////////////////////////
+// Other Styles
+///////////////////////////////////////////////////////////
+*/
+
+td.name
+{
+  text-align:left;
+  padding:2px;
+  padding-left:10px;
+  padding-right:10px;  
+  background-color: #0E3AB8;
+  font-size: 36px;
+  width : 0px;
+  border-top: 3px solid #2E5Ad8;
+  border-left: 3px solid #2E5Ad8;
+  border-right: 3px solid #001A98;
+  border-bottom: 3px solid #001A98;                  
+}
+td.value
+{
+  background-color: #0E3AB8;
+  font-size: 36px;
+  padding-left:10px;
+  padding-right:10px;         	
+  border-top: 3px solid #2E5Ad8;
+  border-left: 3px solid #2E5Ad8;
+  border-right: 3px solid #001A98;
+  border-bottom: 3px solid #001A98; 
+}    
+td.description
+{
+  background-color: #0E3AB8;
+  padding-left:10px;
+  padding-right:10px;
+  border-top: 3px solid #2E5Ad8;
+  border-left: 3px solid #2E5Ad8;
+  border-right: 3px solid #001A98;
+  border-bottom: 3px solid #001A98; 
+}
+
+td.SystemInfo
+{
+   background-color: #001A98;
+   font-weight: bold;
+   font-size: 36px;
+   text-align: left;
+   padding: 4px;
+   white-space: nowrap;
+   border-top: 4px solid #8E8EE8;
+   border-right: 4px solid #010162;
+   border-bottom: 4px solid #000053;
+   border-left: 4px solid #8F8FD5;
+}
+
+td.ItemLog
+{
+   background-color: #001A98;
+   font-weight: bold;
+   font-size: 12px;
+   text-align: left;
+   padding: 4px;
+   white-space: nowrap;
+   border-top: 4px solid #8E8EE8;
+   border-right: 4px solid #010162;
+   border-bottom: 4px solid #000053;
+   border-left: 4px solid #8F8FD5;
+} 

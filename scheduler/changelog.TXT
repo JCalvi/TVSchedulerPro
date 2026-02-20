@@ -1,0 +1,332 @@
+TV Scheduler Pro JC Build
+Copyright John Calvi 2010-2026.
+Original Code Copyright (c) 2009 Blue Bit Solutions
+
+Version JC.299 - 2025-12-31
+1. Scaled as percent ignore flag in calvi EPG.
+2. Refactored authentication so that auth and trusted ip's apply to tasks and rules.
+3. Fixed security warnings to be properly formatted http responses so they display on edge, safari etc. Also added color and bold.
+4. Added hotfix from post 298 release.
+5. Fixed horizontal scroll of calvi epg.
+6. Fixed some more typos.
+
+Version JC.298 - 2025-11-07
+1. Fixed missing ignore flag in Calvi and Horizontal EPG's. Also Scaled better for Vertical EPG.
+2. Updated Tanuki Wrapper to 3.6.3
+3. Updated Australian Stationdata to ACMA October 2025
+4. Compiled TVSP and Tanuki Wrapper with Java 25 - (Now min jre version).
+5. Added wrapper.jarfile to wrapper.conf required to work for Java 24+.
+6. Refactored java code base to address and remove all compiler warnings.
+7. Added --enable-native-access=ALL-UNNAMED to wrapper, start.bat etc.
+
+
+Version JC.297 - 2025-04-22
+1. Fixed error when parsing empty channel <display-name> child nodes from guide data.
+   If the word 'default' is used as a filename pattern then the first real pattern in the list of patterns is substituted for it.
+2. Updated Tanuki Wrapper to 3.5.60
+3. Updated Australian Stationdata to ACMA September 2024
+
+
+Version JC.296 - 2024-05-25
+1. Updated Filename Patterns to include a new pseudo 'default' pattern.
+   If the word 'default' is used as a filename pattern then the first real pattern in the list of patterns is substituted for it.
+2. Updated Tanuki Wrapper to 3.5.56 and compiled with Java 21, now min version.
+3. Updated Australian Stationdata to ACMA January 2024
+4. Updated jakarta.mail 2.0.1 to 2.0.3 (is actually Jakarta Mail version 2.1.3)
+5. Add Specific Encryption Settings for email server, TLSv1,1.1,1.2,1.3 etc.
+   Outlook.com for example seems to require TLSv1.2, Note: instructions to setup outlook.com as mail server: https://mailtrap.io/blog/outlook-smtp/
+   Note: this setting will reset on this upgrade to None, so if STARTTLS or SSL was set, remember to go back in and set it back.
+   Recommended settings are TLS1.2 or SSLv3. TLSv1.3 is best if the remote server supports it.
+6. Compiled with Java 21 (tested also 22) and updated the following deprecated calls accordingly.
+   exec(String) in Runtime
+   URL(String) in URL
+   Locale(String,String,String) in Locale
+7. Lots of changes to installer to make more pretty, hide console popups, fix tray.exe detection in some instances etc.
+
+
+Version JC.295 - 2023-12-11
+1. Updated all Tools to compile with VS2022* - thanks to https://alax.info/blog/2157 for making directshow compile with VS2019+
+   Update Tanuki Wrapper to also be compiled with VS2022*
+   *VS2022 Community Edition - Targeted for Windows 11 SDK - 10.0.22621.0
+2. Updated install check for for VC2010 Redistributable to VC2015-2022, vcredist 2010 no longer required.
+3. Fixed spelling errors.
+4. Updated Australian Stationdata to ACMA July 2023
+
+
+Version JC.294 - 2023-04-07
+1. Update Compiling Java to 17.0.6 GraalVM
+2. Update Tanuki Wrapper to 3.5.53
+3. Add option to clip epg items that start before the xmltv load time.
+4. Fix bug in KB-EPG Categories
+5. Added Flags to EPG Details - Repeat|Live|WS|HD|CC|Premiere
+6. Added Flags to KB-EPG Details as above
+7. Updated Australian Stationdata to ACMA April 2023
+8. Updated javax.mail to jakarta.mail 2.0.1
+
+Version JC.293 - 2022-05-19
+1. Update Compiling Java to 17.0.1 GraalVM
+2. Update Tray Icon with:
+    Force Sleep: Green Moon and Countdown Minutes in Clock Face until Force Sleep Activates
+    Pending Captures: Yellow Recording Dot Countdown Minutes in Clock Face until a pending capture is to start (if < 10)
+    Capturing: Red Dot as before and Number of active captures in Clock face (if < 7)
+3. Update EPG to scale channel names by length of their composite words. Longer words will reduce font to avoid overflowing header row.
+4. Update KB-EPG to fit more channels on page.
+
+Version JC.292 - 2021-12-01
+1. Tested fully working with Windows 11
+2. Updated Stationdata to ACMA October 2021
+3. Update Tanuki Wrapper to 3.5.46
+4. Update Compiling Java to 11.0.13+8
+5. Flipped Calvi theme background image 180deg
+6. Added Force Sleep options to the Tray Application
+      Option to select either S3 Sleep or S4 Hibernate
+      Forces Sleep after ~15mins of no captures pending or active
+      Only operates when the active Power Plan/Profile has "TVSP" in its name
+      To use this feature, either add/create a custom plan (or rename an existing plan) with the name "TVSP"
+        Make sure the plan is set to either never sleep/hibernate, or set to longer than 15 minutes eg 20 minutes.
+        To rename an existing power scheme:
+          A. type powercfg.exe -getactivescheme <Enter>, to get the GUID.
+          B. type powercfg.exe -changename <Insert GUID here> "TVSP" <Enter>, to change the name
+      The tray icon changes to show sleep mode (yellow moon) in the corner when actively counting down
+      The sleep and hibernate will of course keep waketimers active.
+      There is a popup after the 15 minutes asking the user if they want to delay the sleep,
+        this self clears in 10 seconds if no input detected and then will Sleep/Hibernate.
+      To prevent sleep normally just either turn it off or change power plans to one without "TVSP" in its name.
+        e.g. I use pre/post scripts on my HTPC for this to change profiles when I run Kodi, for Acronis backup etc.
+        Prescript is something like,
+          powerconfig.exe /setactiveprofile <Guid of "Always On" profile>
+        Post Script is something like
+          powerconfig.exe /setactiveprofile <Guid of "TVSP" profile>
+      Note: The process uses hardly any additional resources (which was already near zero) to countdown and check power state.
+
+Version JC.291 - 2021-02-11
+
+1. Fix bug in Matchlist editing of Title, Subtitle, Description
+2. Change quick search to Title from Name to match Matchlist terminology
+3. Removed deprecated finalize calls (4 classes), tested for some time and pretty sure not required
+4. Ignore RequestObject.java GET/POST exceptions when browser makes empty request calls
+5  Fix Exception in Continuity Report due to null min/max entries.
+6. Add debug option to email settings, default to off.
+7. Misc Typo's and tidy-ups
+
+Version JC.290 - 2020-11-25
+1. Export and Import Watchlist - Note: this was saved as an xml file in the programdata folder already but was not on the export/import zipfile settings page
+2. Actor Search in EPG Quick Search
+3. Actor Search in KB interface Search, also changed any to Title/Sub/Desc to better reflect that search type.
+4. Actor Option in Matchlists
+5. Updated Tanuki wrapper to 3.5.44 (Compiled with SDK 7.1, was 7.0A)
+6. Updated Stationdata to ACMA November 2020.
+7. Windowfied linefeeds in weekly email report, i.e. \r\n
+8. Fixed some compilation errors, names, versions etc in Tools.
+9. Fixed some Typo's etc in log outputs.
+10. Compiled with Java 11.09+11, Tested on Java 15.0.1+9 Runtime.
+
+Version JC.289 - 2020-05-05
+1. Allow Parenthesis in Filenames
+2. Update Tanuki Wrapper to 3.5.43
+3. Update Compiling Java to 11.07+10
+
+Version JC.288 - 2019-09-19
+1. Compiled the Service Wrapper with Java 11 as per the rest of TVSP.
+2. Certified the installers with SHA1 & SHA256 and my personal certificate.
+3. Updated Stationdata to ACMA 3rd September.
+4. Small changes to kb-epg
+5. Added a check for Microsoft Visual C++ 2010.SP1 Redistributable to the installer and option to download and install if not found.
+   Notes:
+    This is required as since JC.283 all binaries are compiled with VS2010 and the corresponding runtimes are not bundled with fresh installs of Windows 10.
+    The installer will check the registry so the vc redist must be correctly registered. Simply copying the dll's will not pass the test.
+    Likewise the installer does not check for existence of the actual vc files so if there is an issue uninstall and reinstall the runtime.
+    They are named "Microsoft Visual C++ 2010 x64 Redistributable" or "Microsoft Visual C++ 2010 x86 Redistributable" in Apps & Features
+    Only one is required x64 for TVSP-x64 and x86 for TVSP-Win32
+
+Version JC.287 - 2019-08-20
+1. Compiled my own version of Tanuki Wrapper Community Edition to avoid the Virustotal positives from the precompiled binaries used previously
+2. Used NSIS 2.51 instead of 3.04 to remove the remaining false positives from virus total.
+3. Updated 32 & 64 bit wrappers to Tanuki Wrapper Community Edition 3.5.40
+
+Version JC.286 - 2019-06-15
+1. Fixed some issues with scaling on 4K TV and KB theme
+2. Removed alternate lowres KB theme
+3. Fixed bug introduced with JC.285 with win binary application logging.
+  This was preventing the capture logging etc from working and causing windows event crash errors.
+  Also changed other crashdump etc logs that were not redirected from version 285
+4. Made changes to versioning in win binaries to be automated and linked to SVN version.
+  Also reordered to be Major.Minor.Build.QFE as per normal practice - This version will thus be 1.0.286.0
+
+Version JC.285 - 2019-05-30
+1. Fixed bug in Server Version introduced in 284 (improved make.bat etc as well).
+2. Added Computer name to log and email to differentiate multiple installs
+3. Major changes to installer to install into Windows recommended folders etc.
+  a. Removed getuserdatafolder from util.dll as it was not being used anyway.
+  b. Installer will move old userdata from program install folder to ProgramData folder
+  c. Commonised installer script for 32/64 bit builds, and add calling stub for win32
+  d. Try to remove as many deprecated server.prop settings as possible during install
+  e. Updated server.prop.default to contain all current settings.
+  f. Installer defaults to C:\Program Files\TV Scheduler Pro for static data.
+  g. Installer puts all dynamic data into ProgramData Folder (Usually C:\ProgramData\TV Scheduler Pro)
+  h. java code references environment ProgramData instead of using data folder defined in server.prop (this setting now removed)
+  i. capture and xmltv if left as short paths will default to ProgramData folder as their base
+  j. Added remove Program Data for uninstall
+  k. Added Icon to Add/Remove
+  l. Added Version to Add/Remove
+  m. Added Estimated Size to Add/Remove
+  n. Installer will automatically configure wrapper.conf,  "wrapper.java.command=" setting based on where java was found.
+    e.g. if java is found in environment path then installer will configure wrapper.java.command=java
+    e.g. if you put java in C:\Program Files\TV Scheduler Pro\jre then installer will configure wrapper.java.command=jre\bin\java
+  o. Remove extra theme background image
+  p. Removed 15mb TSMemoryShare.ax files as 50mb seems to work well.
+5. Lots of other small changes and bugfixes, e.g. replace \ with File.Separator etc.
+
+Version JC.284 - 2019-05-09
+1. Fixed Auto-add repeat=False setting in System Settings being linked to AA channel - thx Halsboss.
+  https://sourceforge.net/p/tvschedulerpro/discussion/users/thread/dae7ed0a4f/#1bf5
+2. Expanded pop-up description for AARPT
+3. Some build automation script changes and some Notes here and there
+
+Version JC.283 -  2019-05-07
+1. Modified and compiled all tools in VS2010 with Windows 7.1 Directshow SDK. Also made changes to support as well as including Nates lock fix.
+2. Improved tray icons as well as pop up text sizes for legibility on high res displays.
+3. Created 64bit versions of all tools.
+4. Added 64bit wrapper and mods necessary to support, also updated wrapper to 3.5.39 (both win32 and x64 versions).
+  Note: 64bit needs 64bit Java, 32bit needs 32bit Java - adoptopenjdk recommended for either.
+5. Increased TSmemshare to 50mb from 15mb (15mb version included in win folder if this causes issues.)
+6. Made win32 and x64 installer versions - (Note: 32 bit will most likely be dropped in future versions).
+7. Moved win32 tools to new win folder for common 64/32 version support. (Note!: win32 folder is deleted in a new install if pre-existing)
+8. Fixed mail bug introduced with v282 due to changes in Java 11 removing javax.activate from distribution, added javax.activate-1.2.0
+9. Updated mail.jar to javax.mail version 1.6.2 (Note!: mail.jar is deleted in a new install if pre-existing)
+10. Added SSL email option.
+11. Numerous other changes to achieve all of the above.
+
+Version JC.282 - 2019-04-09
+1. Updated all deprecated calls except for finalise. - Recommend Java 11 or later, 32bit required - get from "https://adoptopenjdk.net/index.html"
+2. Changed Tray Icon to 256x256 for windows 7+ and hires displays
+3. Added tvshow.nfo, episode.nfo and artwork tagging for Kodi integration. Refer General Settings to enable and further info.
+4. Added CaptureDetails task, this runs as soon as xml file is written and can be used for custom outputs (eg xml to nfo plugin etc)
+5. Changed calvi kb interface to a 4k version. Old version named calvi.lowres for older displays. - Old version will not be futher maintained.
+6. Updated all icons to 128x128 and cleared unused ones as well as make some outliers more consistent theme.
+7. Ignore comments and fixed typos in guideloader.
+9. Fixed some exceptions.
+10. Upgraded Wrapper to Version 3.5.37.0
+11. Upgraded NSIS installer to 3.04
+12. Tested with Windows 10 and Hauppauge Quad Tuner.
+13. Updated Stationdata.list, but no changes since 2016.
+
+
+Version JC.281 - 2019-03-15
+1. Updated Stationdata to ACMA 1st May 2016 values.
+
+
+Version JC.280 - 2014-10-29
+1. Fixed Installer to detect java as since Java 1.8u25 java.exe is no longer installed to the Windows System Folder.
+2. Added line to wrapper to allow a local java instance to be used instead of an installed common runtime.
+
+
+Version JC.279 - 2014-07-17
+1. Added ability to fine tune "Created From" and "Ignored" schedule matching.
+  "guide.item.cfmatch.inexact" sets whether to use inexact matching for "Created From" guide items (Default = False, i.e. exact matching)
+  "guide.item.cftol.start"     sets the minutes a schedule must start within to be considered the same guide item it was "Created From" (default=0)
+  "guide.item.cftol.duration"  sets the minutes the duration can vary by to be considered the same guide item it was "Created From" (default=0)
+  "guide.item.igmatch.inexact" sets whether to use inexact matching for "Ignored" guide items (Default = False, i.e. exact matching)
+  "guide.item.igtol.start"     sets the minutes a schedule must start within to be considered the same guide item to "Ignore" (default=0)
+  "guide.item.igtol.duration"  sets the minutes the duration can vary by to be considered the same guide item to "Ignore" (default=0)
+  Note: All settings to False/0 will replicate the behaviour of all previous TVSP versions.
+  My recommended settings to handle guide variations gracefully are:
+    "guide.item.cfmatch.inexact" True
+    "guide.item.cftol.start"     10
+    "guide.item.cftol.duration"  10
+    "guide.item.igmatch.inexact" True
+    "guide.item.igtol.start"     10
+    "guide.item.igtol.duration"  10
+
+2. Tidied up General Options.
+
+Version JC.278 - 2014-07-14
+1. Set service to not interact with desktop as per http://forums.dvbowners.com/index.php?s=&showtopic=12382&view=findpost&p=81230
+  QUOTE (DrP @ Dec 4 2013, 08:02 AM)
+  I've done an install of 276 on a clean reload of Win 7 64 bit with UAC at default and had many instances of wrapper.exe doing activity on the secure desktop, although switching to the secure desktop shows nothing going on. Setting the TVS service to not interact with the desktop prevents the Windows secure desktop alert box from appearing.
+2. Fixed Calvi epg theme to select under scheduled items correctly at different screen widths.
+3. Updated Stationdata to ACMA 1st July 2014 values.
+
+Version JC.277 - 2014-05-10
+1. Fixed EPG Display, (Thanks Dave Benham).
+2. Updated all Australian Stations (Re-Stacked) as per http://www.acma.gov.au/~/media/Radiocommunications%20Licensing%20and%20Telecommunications%20Deployment/Publication/pdf/TVRadio_Handbook_tv_9%20pdf.pdf.
+3. Added Short Single City File to Install.
+4. Compiled and tested with Java 1.8 (Then re-compiled with 1.7u55 to maintain compatibility with Windows XP)
+
+Version JC.276 - 2013-11-17
+1. Fixed "Service Not Running" error.
+
+Version JC.275 - 2013-11-03
+1. Major overhaul of KBinterface, item lists now scale with screen resolution, new schedule views etc, list numbers are maintained correctly etc.
+2. Removed old themes from this distribution. (These can easily be retained for an existing installation , but have made many changes and am not testing old themes.)
+3. Fixed bug with KB filelist show.
+4. Updated xmltv.dtd file.
+5. Upgraded Wrapper to Version 3.5.22
+6. Changes to install script to recommend calvi themes and to remove wrapper install delay with Windows 8.1
+
+Version JC.274 - 2013-08-18
+1. Improved KB interfaces (Schedule, AA List and File Manager (Calvi Version)).
+
+Version JC.273 - 2013-08-17
+1. Added subtitle to epg reload logs.
+
+Version JC.272 - 2013-08-04
+1. Made Channel and Repeat=False options for Auto-Add creation (Set these in general properties).
+
+Version JC.271 - 2013-05-05
+1. Updated Adelaide Station Data as per http://forums.dvbowners.com/index.php?showtopic=12381&hl=
+2. Changed to SVN Version Number
+
+Version JC.184.9 - 2013-04-20
+1. Made KBEPG (Calvi theme) channels fixed width to better cope with different resolutions.
+2. Incorporated NSIS installer.
+3. Upgraded Wrapper to Version 3.5.17
+4. Compiled with Java x86 1.7u15
+
+Version JC.184.8 - 2012-10-17
+1. Fixed bug in EPG with apostrophes breaking navigation (in KB interface).
+2. Added Actors, Directors and Ignored to Capture Details.
+Thanks Ralf (raym) for pointing out above bugs/missing items.
+
+Version JC.184.7 - 2012-01-28
+1. Added the "End Buffer EPG Addition" Time to the "Add Time" function for both Web and KB interfaces.
+2. Added Filewriter 1.0.0.259 fix by Nate: http://forums.dvbowners.com/index.php?showtopic=12232
+
+Version JC.184.6 - 2011-02-10
+1. Fixed KB Schedules bug where 1 character names not shown in schedule list.
+
+Version JC.184.5 - 2010-07-02
+1. Fixed bug in Title, Subtitle Or Description EPG Matchlist matching.
+2. Added some further instructions for Regex Matching.
+
+Version JC.184.4 - 2010-07-01
+
+1. Added Title, Subtitle Or Description option to EPG Matchlists, Acts like quicksearch.
+2. Added Subtitles to EPG Matchlist Matches Display and Watchlist Displays, easier to read results.
+3. Added Duration span matching to EPG Matchlists, can now match durations, eg < 1 hour, 1 to 2 hours etc. This is done by splitting the Span match into two types (Start) and (Duration).
+
+
+Version JC.184.3 - 2010-06-28
+
+1. Calvi KB theme included
+  a. Different look and layout to display more on screen and have less clicks to items.
+  b. Improved Search KB with numbers etc.
+  c. wrap around scrolling on all menus.
+  d. Various other tweaks.
+
+2. Calvi EPG theme included
+  a. Times are locked to start time.
+  b. detection for iPad (Safari) and workaround for scrolling not working on such
+  c. Different layout to display more on a smaller screen.
+
+3. Ability to select in general settings no channel name in auto-add names.
+4. Ability to quicksearch by title, subtitle, description or any in epg.
+5. Ability to search by title, subtitle, description or any in kb interfaces. (simple, default and calvi).
+6. Fixed KB search so that results are returned with direct links to item, current matches initiate a second search by title.
+7. Ability to epgmatchlist by subtitle.
+8. Added subtitle info to log file.
+
+
+
+
+

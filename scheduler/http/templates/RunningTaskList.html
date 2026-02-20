@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this task?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+<br>
+
+<a href='/settings.html' class="noUnder"> <img border=0 src='/images/back.png' align='absmiddle' width='24' height='24'> 
+<span class='areaTitle'>System Index</span></a> 
+
+<table border="0" cellspacing="2" cellpadding="4" width="400">
+
+  <tr>
+  <td colspan="6">
+    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+	<tr>
+	<td><strong>Active Task List</strong></td>
+	<td align='right'>
+	<a href='/servlet/TaskManagementDataRes?action=04' class='noUnder' title="Remove Finished Tasks">
+	<img border=0 src='/images/delete.png' align='absmiddle' width='24' height='24'>
+	Finished</a>
+	</td>
+	</tr>
+	</table>
+  </td>
+  </tr>
+
+  <tr>
+    <td class="itemheading" nowrap><strong>Task Created</strong></td>
+    <td class="itemheading" nowrap><strong>Name</strong></td>
+    <td class="itemheading" nowrap><strong>Target</strong></td>
+    <td class="itemheading" nowrap><strong>Delay</strong></td>
+    <td class="itemheading" nowrap><strong>Status</strong></td>
+    <td class="itemheading" nowrap><strong>Actions</strong></td>
+  </tr>
+  
+  $taskList
+  
+  <tr>
+    <td class="itemheading" align="center" colspan="6"><a class="noUnder" href="/servlet/TaskManagementDataRes?action=05"><strong>Show Archive</strong></a></td>
+  </tr>  
+  
+</table>
+
+</body>
+</html>

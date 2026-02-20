@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this Item?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+
+<table border="0" cellspacing="5" cellpadding="5">
+
+<tr>
+<td valign="bottom" colspan='2'>
+<center>
+<span class='areaTitle'> Current Auto-Add List</span>
+</center>
+</td>
+
+<td align="right" colspan='6'>
+<table>
+<tr>
+<td>
+<a href='/settings.html' class='noUnder'>
+<img alt="Home" border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href='/servlet/EpgAutoAddDataRes?action=03' class='noUnder'>
+<img border=0 src='/images/addsch.png' align='absmiddle' width='24' height='24'>
+ <span class='areaTitle'>Add New</span></a>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href='#' class='noUnder' onClick="showHelp('AutoAddSystem');">
+<img border=0 src='/images/help.png' alt='help' align='absmiddle' width='24' height='24'>
+ <span class='areaTitle'>Help</span></a>
+</td>
+</tr>
+
+</table>
+</td>
+</tr>
+
+$list
+
+<tr> 
+<td align='right' colspan='8'>
+
+<a href='/servlet/EpgAutoAddDataRes?action=26' class='noUnder' title="Export List"><img border=0 src='/images/export.png' align='absmiddle' width='24' height='24'>Export</a> 
+<a href='/servlet/EpgAutoAddDataRes?action=28' class='noUnder' title="Import List"><img border=0 src='/images/import.png' align='absmiddle' width='24' height='24'>Import</a>
+
+</td>
+</tr>
+
+</table>
+
+<br><br><br>
+
+</body>
+</html>

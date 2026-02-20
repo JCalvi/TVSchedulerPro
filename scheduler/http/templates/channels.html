@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Timer Control</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 7.0]>
+<script src="/javascript/iepng.js"></script>
+<![endif]-->
+<script src="/javascript/main.js"></script>
+<script language="JavaScript">
+function confirmAction(action)
+{
+	return confirm("Are you sure you want to " + action + " this channel?");
+}
+</script>
+</head>
+<body>
+<center>
+<br><br>
+<a href="/"><img border='0' src='/images/logo.png' align='absmiddle' width='64' height='64'></a> <span class='pageTitle'> TV Scheduler Pro</span><br>
+
+
+<table border=0 class='channelList' cellspacing="5" cellpadding="5">
+
+<tr>
+<td colspan='8'>
+
+<table border=0 width="100%">
+<tr>
+<td width="100%">
+<a href='/settings.html' class='noUnder'>
+<img alt="Home" border=0 src='/images/back.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>System Index</span></a>
+</td>
+<td nowrap>
+<a href='/servlet/ChannelDataRes?action=01' class='noUnder'>
+<img border=0 src='/images/RunTask.png' align='absmiddle' width='24' height='24'>
+<span class='areaTitle'>Auto-Scan</span></a>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td nowrap>
+<a href='/custom-channel.html' class='noUnder'>
+<img border=0 src='/images/add.png' align='absmiddle' width='24' height='24'>
+ <span class='areaTitle'>Add Custom</span></a>
+</td>
+</tr>
+<td>
+</td>
+<tr>
+<td nowrap>
+<span class='areaTitle'>TV Scheduler Pro Channel List</span>
+</td>
+<td nowrap>
+<a href='/servlet/ChannelDataRes?action=08' class='noUnder'>
+<img border=0 src='/images/reload.png' align='absmiddle' width='24' height='24'>
+ <span class='areaTitle'>Re-Scan A/V PID's</span></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+
+<tr>
+<td nowrap class='itemheading'>Name</td>
+<td nowrap class='itemheading'>Frequency</td>
+<td nowrap class='itemheading'>Bandwidth</td>
+<td nowrap class='itemheading'>Program</td>
+<td nowrap class='itemheading'>Video</td>
+<td nowrap class='itemheading'>Audio</td>
+<td nowrap class='itemheading'>Cap Type</td>
+<td nowrap class='itemheading'>Action</td>
+</tr>
+
+$channels
+
+<tr> 
+<td align='right' colspan='8'>
+<a href='/servlet/ChannelDataRes?action=10' class='noUnder' title="Export List"><img border=0 src='/images/export.png' align='absmiddle' width='24' height='24'>Export</a> 
+<a href='/servlet/ChannelDataRes?action=12' class='noUnder' title="Import List"><img border=0 src='/images/import.png' align='absmiddle' width='24' height='24'>Import</a>
+</td>
+</tr>
+
+</table>
+
+<br><br>
+</body>
+</html>

@@ -1,0 +1,54 @@
+1. Install VS2010
+2. Download and install the Windows Software Development Kit version 7.1.
+  Note: https://stackoverflow.com/questions/31455926/windows-sdk-7-1-setup-failure
+  With Windows 10 x64, the setup is blocked by:
+    HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\v4\Full\Version
+    HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\v4\Client\Version
+    Change both values temporarily to 4.0.30319 and the setup will let you continue.
+    Make sure you edit the registry with elevated privileges, otherwise you will not be allowed to change the values.
+    This includes taking ownership, adding permissions making the change etc. Revert all when done.
+    Note: Currently 4.8.04084 (But this would update with each windows or .net update)
+3. I moved C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib contents to C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\win32
+  This is to allow the configurations to be automatic for platform being built.
+  This could also be achieved with a symbolic link, eg: mklink /d "C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib\win32" "C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib"
+4. I also moved the Java installs to x64 and win32 folders and removed version numbers from folders to allow auto platform building and updating as well.
+  e.g. C:\Program Files\Java\x64\jdk\  C:\Program Files\Java\x64\jre  C:\Program Files\Java\win32\jdk\ etc.
+5. Build the BaseClasses.sln for all configs and platforms required.
+  NOTE: THE CONFIG MUST BE THE SAME AS FOR THE TOOLS.SLN esp UNICODE VS MBCS. I compiled everything with Multi Byte Character Set & changed the Release and Debug configs to this. I also removed the Release_MBCS and Debug_MBCS configs from the solution.
+        IF the settings for ALL CONFIGS are not the same then weird linking errors will occur.
+6. Make sure the Java installs are available for the util tool - refer config for folder settings, change as required for latest version.
+
+Note:
+TSMemoryShare Size is defined in SharedMem.h and was defaulted to 15mb
+#define shareDataSize 15000000
+//#define shareDataSize 52428800
+
+
+
+
+
+
+
+
+Other Notes Re VS Express and x64
+https://stackoverflow.com/questions/1865069/how-to-compile-a-64-bit-application-using-visual-c-2010-express
+
+Here are step by step instructions:
+
+    Download and install the Windows Software Development Kit version 7.1.
+      Visual C++ 2010 Express does not include a 64 bit compiler, but the SDK does.
+      A link to the SDK: http://msdn.microsoft.com/en-us/windowsserver/bb980924.aspx
+    Change your project configuration.
+      Go to Properties of your project.
+      On the top of the dialogue box there will be a "Configuration" drop-down menu.
+      Make sure that selects "All Configurations."
+      There will also be a "Platform" drop-down that will read "Win32."
+      Finally on the right there is a "Configuration Manager" button - press it.
+      In the dialogue that comes up, find your project, hit the Platform drop-down, select New, then select x64.
+      Now change the "Active solution platform" drop-down menu to "x64."
+      When you return to the Properties dialogue box, the "Platform" drop-down should now read "x64."
+    Finally, change your toolset.
+      In the Properties menu of your project,
+      under Configuration Properties | General, change Platform Toolset from "v100" to "Windows7.1SDK".
+
+These steps have worked for me, anyway. Some more details on step 2 can be found in a reference from Microsoft that a previous poster mentioned: http://msdn.microsoft.com/en-us/library/9yb4317s.aspx.
